@@ -2,6 +2,11 @@
 
 > Prototyping the member dashboard
 
+# Notes
+
+* [Bulma: a modern CSS framework based on Flexbox](http://bulma.io/)
+* [Flexboxgrid Sass](http://hugeinc.github.io/flexboxgrid-sass/)
+
 ## Build Setup
 
 ``` bash
