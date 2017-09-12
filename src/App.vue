@@ -20,7 +20,7 @@
                   <svg class="svg-icon" viewBox="0 0 120 120">
                     <rect x="10" y="10" width="100" height="100" rx="5" ry="5" />
                   </svg>
-                  <h3>Status</h3>
+                  <p class="is-size-5">Status</p>
                 </div>
               </router-link>
 
@@ -29,7 +29,7 @@
                   <svg class="svg-icon" viewBox="0 0 120 120">
                     <rect x="10" y="10" width="100" height="100" rx="5" ry="5" />
                   </svg>
-                  <h3>Profile</h3>
+                  <p class="is-size-5">Profile</p>
                 </div>
               </router-link>
 
@@ -38,7 +38,7 @@
                   <svg class="svg-icon" viewBox="0 0 120 120">
                     <rect x="10" y="10" width="100" height="100" rx="5" ry="5" />
                   </svg>
-                  <h3>Preferences</h3>
+                  <p class="is-size-5">Preferences</p>
                 </div>
               </router-link>
 
@@ -89,7 +89,17 @@ export default {
 
   .db-link {
     text-align: center;
+    margin-bottom: 1rem;
   }
 
+  a.is-active .db-link svg.svg-icon {
+    stroke: $primary;
+    stroke-width: 2;
+  }
+
+  a.is-active .db-link p {
+    font-weight: $weight-bold;
+    color: $primary;
+  }
 
 </style>

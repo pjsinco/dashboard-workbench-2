@@ -49,13 +49,9 @@ $fullhd: $widescreen;
   margin-bottom: 2rem !important;
 }
 
-.field.is-horizontal:first-child {
-  padding-top: 1rem;
-}
-
 .tabs li.is-active a {
-  border-bottom-color: $info;
-  color: $info;
+  border-bottom-color: $primary;
+  color: $primary;
   font-weight: $weight-bold;
 }
 
@@ -64,8 +60,8 @@ $fullhd: $widescreen;
 }
 
 .tabs a:hover {
-  border-bottom-color: $info;
-  color: $info;
+  border-bottom-color: $primary;
+  color: $primary;
 }
 
 /*
