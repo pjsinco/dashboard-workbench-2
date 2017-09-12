@@ -2,13 +2,21 @@
  * OVERRIDE BULMA VARIABLES
  */
 
+
 $family-sans-serif: 'proxima-nova', BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 $gap: 24px;
-$fullhd: 1152px + (2 * $gap); // $widescreen value
+$widescreen: 1152px + (2 * $gap); 
 $grey: hsl(0, 0%, 48%);
 $grey-darker: hsl(0, 0%, 21%);
+$primary: #000066;
 
+/*
+ * Derived Bulma vars
+ */
 $link: $grey;
+$tabs-link-active-border-bottom-color: $primary;
+$tabs-link-active-color:	$primary;
+$fullhd: $widescreen;
 
 /*
  * IMPORTS
@@ -17,10 +25,6 @@ $link: $grey;
 /*@import './../../node_modules/flexboxgrid-sass/flexboxgrid.scss';*/
 @import './../../node_modules/bulma/bulma.sass';
 
-
-/*
- * VARIABLES
- */
 
 
 html {

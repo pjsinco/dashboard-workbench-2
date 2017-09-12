@@ -2,17 +2,17 @@
   <div>
     <div class="tabs">
       <ul>
-        <router-link tag="li" to="/profile">
-          Personal
+        <router-link tag="li" to="/profile" exact>
+          <a>Personal</a>
         </router-link>
         <router-link tag="li" to="/profile/contact">
-          Contact
+          <a>Contact</a>
         </router-link>
         <router-link tag="li" to="/profile/login">
-          Login
+          <a>Login</a>
         </router-link>
         <router-link tag="li" to="/profile/findyourdo">
-          Find Your DO
+          <a>Find Your DO</a>
         </router-link>
       <!--<tab name="Personal" v-bind:selected="true">-->
         <!--<h1>This the the personal tab</h1>-->
