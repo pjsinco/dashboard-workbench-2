@@ -7,33 +7,44 @@
         <div class="container">
           <div class="columns">
             <div class="column is-one-quarter">
-              <div class="db-link">
-                <a href="#">
+
+              <!--<links>-->
+                <!--<link :name="Status">-->
+                <!--<link :name="Profile">-->
+                <!--<link :name="Preferences">-->
+              <!--</links>-->
+
+              <router-link to="/status">
+                <div class="db-link">
                   <svg class="svg-icon" viewBox="0 0 120 120">
                     <rect x="10" y="10" width="100" height="100" rx="5" ry="5" />
                   </svg>
                   <h3>Status</h3>
-                </a>
-              </div>
-              <div class="db-link">
-                <a href="#">
+                </div>
+              </router-link>
+
+              <router-link to="/profile">
+                <div class="db-link">
                   <svg class="svg-icon" viewBox="0 0 120 120">
                     <rect x="10" y="10" width="100" height="100" rx="5" ry="5" />
                   </svg>
                   <h3>Profile</h3>
-                </a>
-              </div>
-              <div class="db-link">
-                <a href="#">
+                </div>
+              </router-link>
+
+              <router-link to="/preferences">
+                <div class="db-link">
                   <svg class="svg-icon" viewBox="0 0 120 120">
                     <rect x="10" y="10" width="100" height="100" rx="5" ry="5" />
                   </svg>
                   <h3>Preferences</h3>
-                </a>
-              </div>
+                </div>
+              </router-link>
+
             </div> <!-- .column -->
+
             <div class="column auto">
-              <h3>How are you?</h3>
+              <router-view></router-view>
             </div> <!-- .col-xs-8 -->
           </div> <!-- .row -->
         </div>
