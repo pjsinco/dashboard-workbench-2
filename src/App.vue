@@ -8,6 +8,7 @@
           <div class="columns">
             <div class="column is-one-quarter">
 
+              <!--TODO refactor below into:-->
               <!--<links>-->
                 <!--<link :name="Status">-->
                 <!--<link :name="Profile">-->
