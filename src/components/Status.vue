@@ -1,7 +1,5 @@
 <template>
-  <div>
-    Hello from status
-  </div>
+  <div class="title is-1 has-text-primary">Hello from status</div>
 </template>
 
 <script>

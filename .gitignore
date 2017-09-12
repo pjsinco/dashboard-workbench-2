@@ -9,3 +9,6 @@ npm-debug.log
 *.ntvs*
 *.njsproj
 *.sln
+*.swo
+*.swp
+*.swm

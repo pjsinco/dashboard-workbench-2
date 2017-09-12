@@ -1,7 +1,5 @@
 <template>
-  <div>
-    Hello from Prefs
-  </div>
+  <div class="title is-1 has-text-primary">Hello from prefs</div>
 </template>
 
 <script>

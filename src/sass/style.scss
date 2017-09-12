@@ -2,17 +2,20 @@
  * OVERRIDE BULMA VARIABLES
  */
 
+@import './../../node_modules/bulma/sass/utilities/initial-variables.sass';
 
 $family-sans-serif: 'proxima-nova', BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-$gap: 24px;
-$widescreen: 1152px + (2 * $gap); 
-$grey: hsl(0, 0%, 48%);
-$grey-darker: hsl(0, 0%, 21%);
-$primary: #000066;
+$blue: #000066;
+$turqoise: #22a49c;
+$radius-small: 1px;
+$radius: 2px;
+$radius-large: 3px;
 
 /*
  * Derived Bulma vars
  */
+$primary: $blue;
+$info: $turqoise;
 $link: $grey;
 $tabs-link-active-border-bottom-color: $primary;
 $tabs-link-active-color:	$primary;
@@ -26,7 +29,66 @@ $fullhd: $widescreen;
 @import './../../node_modules/bulma/bulma.sass';
 
 
+/*
+ * BULMA OVERRIDES
+ */
+.field-label .label,
+.label {
+  font-weight: $weight-bold;
+  color: $info;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: .75rem;
+}
 
+.input {
+  box-shadow: none;
+}
+
+.field {
+  margin-bottom: 2rem !important;
+}
+
+.field.is-horizontal:first-child {
+  padding-top: 1rem;
+}
+
+.tabs li.is-active a {
+  border-bottom-color: $info;
+  color: $info;
+  font-weight: $weight-bold;
+}
+
+.tabs:not(:last-child) {
+  margin-bottom: 2.5rem;
+}
+
+.tabs a:hover {
+  border-bottom-color: $info;
+  color: $info;
+}
+
+/*
+ * BULMA ADD-ONS
+ */
+
+
+.input:focus, 
+.input.is-focused, 
+.input:active, 
+.input.is-active, 
+.textarea:focus, 
+.textarea.is-focused, 
+.textarea:active, 
+.textarea.is-active {
+  box-shadow: none;
+  border-color: $info;
+}
+
+
+/*
+ * BASE
+ */
 html {
   font-size: 16px;
   line-height: 1;

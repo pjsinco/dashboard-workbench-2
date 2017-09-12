@@ -1,11 +1,10 @@
 <template>
-  <div class="title is-1 has-text-primary">Hello from Find Your DO</div>
 </template>
 
 <script>
   export default {
 
-    name: 'profile-find-your-do',
+    name: 'input',
 
     data () {
 

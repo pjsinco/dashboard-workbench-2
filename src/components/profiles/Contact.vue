@@ -1,5 +1,5 @@
 <template>
-  <h1>This is the {{ $options.name }} component</h1>
+  <div class="title is-1 has-text-primary">Hello from Contact</div>
 </template>
 
 <script>
