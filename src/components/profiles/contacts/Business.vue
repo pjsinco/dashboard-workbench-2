@@ -5,7 +5,7 @@
 
         <div class="field">
           <label class="label" for="email">Email</label>
-          <div class="control">
+          <div :class="[ isLoading ? 'is-loading control' : 'control' ]">
             <input class="input is-medium" type="text" name="email" id="email" v-model="form.email" @input="form.errors.clear()">
             <span class="help is-danger" v-if="form.errors.has('name')" v-text="form.errors.get('email')"></span>
           </div>
@@ -13,7 +13,7 @@
 
         <div class="field">
           <label class="label" for="address1">Addresss 1</label>
-          <div class="control">
+          <div :class="[ isLoading ? 'is-loading control' : 'control' ]">
             <input class="input is-medium" type="text" name="address1" id="address1" v-model="form.address1" @input="form.errors.clear()">
             <span class="help is-danger" v-if="form.errors.has('name')" v-text="form.errors.get('address1')"></span>
           </div>
@@ -21,7 +21,7 @@
 
         <div class="field">
           <label class="label" for="address2">Address 2</label>
-          <div class="control">
+          <div :class="[ isLoading ? 'is-loading control' : 'control' ]">
             <input class="input is-medium" type="text" name="address2" id="address2" v-model="form.address2" @input="form.errors.clear()">
             <span class="help is-danger" v-if="form.errors.has('name')" v-text="form.errors.get('address2')"></span>
           </div>
@@ -29,7 +29,7 @@
 
         <div class="field">
           <label class="label" for="city">City</label>
-          <div class="control">
+          <div :class="[ isLoading ? 'is-loading control' : 'control' ]">
             <input class="input is-medium" type="text" name="city" id="city" v-model="form.city" @input="form.errors.clear()">
             <span class="help is-danger" v-if="form.errors.has('name')" v-text="form.errors.get('city')"></span>
           </div>
@@ -43,7 +43,7 @@
           </div>
           <div class="field-body">
             <div class="field">
-              <div class="control">
+              <div :class="[ isLoading ? 'is-loading control' : 'control' ]">
                 <div class="select is-medium">
                   <select name="state" id="state" v-model="form.state">
                     <option v-for="state in states" key="state.abbr" :value="state.abbr">{{ state.name }}</option>
@@ -65,7 +65,7 @@
 
         <div class="field">
           <label class="label" for="businessPhone">Business Phone</label>
-          <div class="control">
+          <div :class="[ isLoading ? 'is-loading control' : 'control' ]">
             <input class="input is-medium" type="text" name="businessPhone" id="businessPhone" v-model="form.businessPhone" @input="form.errors.clear()">
             <span class="help is-danger" v-if="form.errors.has('name')" v-text="form.errors.get('businessPhone')"></span>
           </div>
@@ -93,12 +93,31 @@
     methods: {
       onSubmit() {
         console.log('submitted');
-      }
+      },
+
+      fetchData() {
+        const that = this;
+        setTimeout(function() {
+          that.isLoading = false;
+          that.form.email = 'glavender@wellstar.com';
+          that.form.city = 'Kennesaw';
+          that.form.address1 = '750 Townpark Ln NW';
+          that.form.state = 'GA';
+          that.form.zip = '30144';
+          that.form.businessPhone = '4043650966';
+        }, 2000);
+      },
+    },
+
+
+    mounted() {
+      this.fetchData();
     },
 
     data () {
 
       return {
+        isLoading: true,
         form: new Form({
           email: '',
           address1: '',
