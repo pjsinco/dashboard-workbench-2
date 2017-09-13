@@ -5,6 +5,8 @@ import ProfilePersonal from './components/profiles/Personal.vue';
 import ProfileContact from './components/profiles/Contact.vue';
 import ProfileLogin from './components/profiles/Login.vue';
 import ProfileFindYourDo from './components/profiles/FindYourDo.vue';
+import ContactHome from './components/profiles/contacts/Home.vue';
+import ContactBusiness from './components/profiles/contacts/Business.vue';
 import Preferences from './components/Preferences.vue';
 
 
@@ -24,6 +26,16 @@ let routes = [
       {
         path: 'contact',
         component: ProfileContact,
+        children: [
+          {
+            path: '',
+            component: ContactHome,
+          },
+          {
+            path: 'business',
+            component: ContactBusiness,
+          },
+        ],
       },
       {
         path: 'login',
