@@ -41,7 +41,7 @@
             </div>
             <div class="field is-horizontal">
               <div class="field-label">
-                <label class="label" for="suffix">Designation</label>
+                <label class="label" for="designation">Designation</label>
               </div>
               <div class="field-body">
                 <input class="input is-medium" type="text" name="designation" id="designation" v-model="form.designation" @input="form.errors.clear()">

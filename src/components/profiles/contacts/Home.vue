@@ -1,15 +1,116 @@
 <template>
-  <div class="title is-1 has-text-primary">Hello from contact > home</div>
+
+  <div class="columns">
+    <div class="column is-12">
+      <form @submit.prevent="onSubmit">
+
+        <div class="field">
+          <label class="label" for="email">Email</label>
+          <div class="control">
+            <input class="input is-medium" type="text" name="email" id="email" v-model="form.email" @input="form.errors.clear()">
+            <span class="help is-danger" v-if="form.errors.has('name')" v-text="form.errors.get('email')"></span>
+          </div>
+        </div> <!-- .field -->
+
+        <div class="field">
+          <label class="label" for="address1">Addresss 1</label>
+          <div class="control">
+            <input class="input is-medium" type="text" name="address1" id="address1" v-model="form.address1" @input="form.errors.clear()">
+            <span class="help is-danger" v-if="form.errors.has('name')" v-text="form.errors.get('address1')"></span>
+          </div>
+        </div> <!-- .field -->
+
+        <div class="field">
+          <label class="label" for="address2">Address 2</label>
+          <div class="control">
+            <input class="input is-medium" type="text" name="address2" id="address2" v-model="form.address2" @input="form.errors.clear()">
+            <span class="help is-danger" v-if="form.errors.has('name')" v-text="form.errors.get('address2')"></span>
+          </div>
+        </div> <!-- .field -->
+
+        <div class="field">
+          <label class="label" for="city">City</label>
+          <div class="control">
+            <input class="input is-medium" type="text" name="city" id="city" v-model="form.city" @input="form.errors.clear()">
+            <span class="help is-danger" v-if="form.errors.has('name')" v-text="form.errors.get('city')"></span>
+          </div>
+        </div> <!-- .field -->
+
+
+        <!-- TODO fix one-off style change below -->
+        <div class="field is-horizontal" style="padding-top: 1rem;">
+          <div class="field-label is-normal">
+            <label class="label" for="state">State</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <div class="select is-medium">
+                  <select name="state" id="state" v-model="form.state">
+                    <option v-for="state in states" key="state.abbr" :value="state.abbr">{{ state.name }}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label class="label" for="zip">Zip</label>
+              </div>
+              <div class="field-body">
+                <input class="input is-medium" type="text" name="zip" id="zip" v-model="form.zip" @input="form.errors.clear()">
+                <span class="help is-danger" v-if="form.errors.has('name')" v-text="form.errors.get('zip')"></span>
+              </div>
+            </div>
+          </div>
+        </div> <!-- .field -->
+
+        <div class="field">
+          <label class="label" for="homePhone">Home Phone</label>
+          <div class="control">
+            <input class="input is-medium" type="text" name="homePhone" id="homePhone" v-model="form.homePhone" @input="form.errors.clear()">
+            <span class="help is-danger" v-if="form.errors.has('name')" v-text="form.errors.get('homePhone')"></span>
+          </div>
+        </div> <!-- .field -->
+
+        <div class="field">
+          <div class="control is-pulled-right">
+            <button class="button is-primary is-medium" v-bind:disabled="form.errors.any()">Update profile</button>
+          </div>
+        </div>
+      </form>
+      
+    </div>
+  </div>
 </template>
 
 <script>
+  import Form from './../../../utils/Form';
+  import states from './../../../data/states.json';
+
   export default {
 
-    name: 'contact-home',
+    name: 'contact-form',
+
+    methods: {
+      onSubmit() {
+        console.log('submitted');
+      }
+    },
 
     data () {
 
       return {
+        form: new Form({
+          email: '',
+          address1: '',
+          address2: '',
+          city: '',
+          state: '',
+          zip: '',
+          homePhone: '',
+        }),
+
+        states,
       }
     }
   }
