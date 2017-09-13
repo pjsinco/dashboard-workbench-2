@@ -5,7 +5,7 @@
 
         <div class="field">
           <label class="label" for="firstName">First Name</label>
-          <div class="control">
+          <div :class="[ isLoading ? 'is-loading control' : 'control' ]">
             <input class="input is-medium" type="text" name="firstName" id="firstName" v-model="form.firstName" @input="form.errors.clear()">
             <span class="help is-danger" v-if="form.errors.has('name')" v-text="form.errors.get('firstName')"></span>
           </div>
@@ -13,7 +13,7 @@
 
         <div class="field">
           <label class="label" for="middleName">Middle Name</label>
-          <div class="control">
+          <div :class="[ isLoading ? 'is-loading control' : 'control' ]">
             <input class="input is-medium" type="text" name="middleName" id="middleName" v-model="form.middleName" @input="form.errors.clear()">
             <span class="help is-danger" v-if="form.errors.has('name')" v-text="form.errors.get('middleName')"></span>
           </div>
@@ -21,7 +21,7 @@
 
         <div class="field">
           <label class="label" for="lastName">Last Name</label>
-          <div class="control">
+          <div :class="[ isLoading ? 'is-loading control' : 'control' ]">
             <input class="input is-medium" type="text" name="lastName" id="lastName" v-model="form.lastName" @input="form.errors.clear()">
             <span class="help is-danger" v-if="form.errors.has('name')" v-text="form.errors.get('lastName')"></span>
           </div>
@@ -34,9 +34,9 @@
           </div>
           <div class="field-body">
             <div class="field">
-              <div class="control">
+              <div :class="[ isLoading ? 'is-loading control' : 'control' ]">
                 <input class="input is-medium" type="text" name="suffix" id="suffix" v-model="form.suffix" @input="form.errors.clear()">
-                <span class="help is-danger" v-if="form.errors.has('name')" v-text="form.errors.get('suffix')"></span>
+                <span class="help is-danger" v-if="form.errors.has('suffix')" v-text="form.errors.get('suffix')"></span>
               </div>
             </div>
             <div class="field is-horizontal">
@@ -44,8 +44,10 @@
                 <label class="label" for="designation">Designation</label>
               </div>
               <div class="field-body">
-                <input class="input is-medium" type="text" name="designation" id="designation" v-model="form.designation" @input="form.errors.clear()">
-                <span class="help is-danger" v-if="form.errors.has('name')" v-text="form.errors.get('designation')"></span>
+                <div :class="[ isLoading ? 'is-loading control is-pulled-right' : 'control is-pulled-right' ]">
+                  <input class="input is-medium" type="text" name="designation" id="designation" v-model="form.designation" @input="form.errors.clear()">
+                  <span class="help is-danger" v-if="form.errors.has('designation')" v-text="form.errors.get('designation')"></span>
+                </div>
               </div>
             </div>
           </div>
@@ -73,13 +75,27 @@
 
       onSubmit() {
         console.log('submitted');
+      },
+
+
+      fetchData() {
+        const that = this;
+        setTimeout(function() {
+          that.isLoading = false;
+          that.form.firstName = 'Gracie';
+          that.form.lastName = 'Lavender';
+          that.form.designation = 'DO';
+        }, 2000);
       }
 
     },
 
+    created() {
+      this.fetchData();
+    },
     data () {
-
       return {
+        isLoading: true,
         form: new Form({
           firstName: '',
           middleName: '',
