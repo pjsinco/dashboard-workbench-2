@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="title is-1 has-text-primary">Hello from status</div>
+<!--     <div class="title is-1">Hello from status</div> -->
     <div class="tile is-ancestor">
       <div class="tile is-parent">
         <article class="tile is-child box">

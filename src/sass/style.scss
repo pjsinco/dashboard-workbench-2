@@ -15,8 +15,10 @@ $size-7: .85rem;
 /*
  * Derived Bulma vars
  */
-$primary: $blue;
-$info: $turqoise;
+/*$primary: $blue;*/
+$primary: $grey-dark;
+/*$info: $turqoise;*/
+$info: $grey-dark;
 $link: $grey;
 $tabs-link-active-border-bottom-color: $primary;
 $tabs-link-active-color:	$primary;
@@ -136,4 +138,88 @@ body {
 
 .has-border-bottom {
   border-bottom: 1px solid $grey-light;
+}
+
+.banner-hero {
+  background-color: $primary !important;
+
+  & h1 {
+    transform: translateY(15%);
+    font-weight: 700;
+  }
+}
+
+.banner-tabs {
+
+  padding-bottom: .5rem;
+  overflow: visible;
+  background-color: $primary;
+
+  & ul {
+    border-bottom-style: none;
+    border-bottom-width: 0;
+  }
+
+  & a {
+    border-bottom-style: none;
+    border-bottom-width: 0;
+    color: $white;
+    opacity: .8;
+    
+    &:hover {
+      color: $white;
+      border-bottom-color: unset;
+    }
+  }
+
+  & li {
+    position: relative;
+  }
+
+  & li.is-active a {
+    color: $white;
+    border-bottom: none;
+  }
+
+  & li.is-active:after {
+    content: '';
+    height: 0.5em;
+    width: 0;
+    position: absolute;
+    left: 57%;
+    bottom: -36px;
+    margin-left: -1.5em;
+    z-index: 3;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    border-style: solid;
+    border-top-color: $primary;
+    border-width: 14px;
+
+  }
+
+}
+
+.db-nav {
+
+  // adapted from PayPal dashboard
+  .navbar-item.is-active:after {
+    content: '';
+    height: 0.5em;
+    width: 0;
+    position: absolute;
+    left: 57%;
+    bottom: -35px;
+    margin-left: -1.5em;
+    z-index: 3;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    border-style: solid;
+    border-top-color: $primary;
+    border-width: 1.1em;
+  }
+
+
 }
