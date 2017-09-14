@@ -28,33 +28,28 @@
           </div>
         </div> <!-- .field -->
 
-
-        <!-- TODO fix one-off style change below -->
-        <div class="field is-horizontal" style="padding-top: 1rem;">
-          <div class="field-label is-normal">
-            <label class="label" for="state">State</label>
-          </div>
-          <div class="field-body">
+        <div class="columns">
+          <div class="column is-half">
+            <!-- TODO fix one-off style change below -->
             <div class="field">
-              <div :class="[ isLoading ? 'is-loading control' : 'control' ]">
-                <div class="select is-medium">
-                  <select name="state" id="state" v-model="form.state">
-                    <option v-for="state in states" key="state.abbr" :value="state.abbr">{{ state.name }}</option>
-                  </select>
-                </div>
+              <label class="label" for="state">State</label>
+              <div class="select is-medium">
+                <select name="state" id="state" v-model="form.state">
+                  <option v-for="state in states" key="state.abbr" :value="state.abbr">{{ state.name }}</option>
+                </select>
               </div>
             </div>
-            <div class="field is-horizontal">
-              <div class="field-label">
-                <label class="label" for="zip">Zip</label>
-              </div>
-              <div class="field-body">
+          </div>
+          <div class="column is-half">
+            <div class="field">
+              <label class="label" for="zip">Zip</label>
+              <div :class="[ isLoading ? 'is-loading control' : 'control' ]">
                 <input class="input is-medium" type="text" name="zip" id="zip" v-model="form.zip" @input="form.errors.clear()">
                 <span class="help is-danger" v-if="form.errors.has('name')" v-text="form.errors.get('zip')"></span>
               </div>
             </div>
-          </div>
-        </div> <!-- .field -->
+          </div> <!-- .column -->
+        </div> <!-- .columns -->
 
         <div class="field">
           <label class="label" for="homePhone">Home Phone</label>

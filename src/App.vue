@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav-header></nav-header>
-    <banner>Hello, Dr. {{ lastName }}!</banner>
+    <banner>Good afternoon, Dr. {{ lastName }}!</banner>
     <div class="tabs banner-tabs">
       <div class="container">
         <ul>
