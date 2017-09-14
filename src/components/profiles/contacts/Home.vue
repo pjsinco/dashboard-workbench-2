@@ -1,16 +1,8 @@
 <template>
 
-  <div class="columns">
-    <div class="column is-12">
+    <div>
+      <h3 class="is-size-4 title has-text-weight-bold">Home <span class="has-text-weight-light has-text-grey">contact information</span></h3>
       <form @submit.prevent="onSubmit">
-
-        <div class="field">
-          <label class="label" for="email">Email</label>
-          <div :class="[ isLoading ? 'is-loading control' : 'control' ]">
-            <input class="input is-medium" type="text" name="email" id="email" v-model="form.email" @input="form.errors.clear()">
-            <span class="help is-danger" v-if="form.errors.has('name')" v-text="form.errors.get('email')"></span>
-          </div>
-        </div> <!-- .field -->
 
         <div class="field">
           <label class="label" for="address1">Addresss 1</label>
@@ -80,7 +72,6 @@
       </form>
       
     </div>
-  </div>
 </template>
 
 <script>
@@ -92,16 +83,15 @@
     name: 'contact-form',
 
     methods: {
-      fetchData() {
+      fetchData(wait = 2000) {
         const that = this;
         setTimeout(function() {
           that.isLoading = false;
-          that.form.email = 'glavender@gmail.com';
           that.form.city = 'Woodstock';
           that.form.address1 = '205 Olde Oak Way';
           that.form.state = 'GA';
           that.form.zip = '30188';
-        }, 2000);
+        }, wait);
       },
 
       onSubmit() {
@@ -110,7 +100,7 @@
     },
 
     created() {
-      this.fetchData();
+      this.fetchData(750);
     },
 
     data () {
@@ -118,7 +108,6 @@
       return {
         isLoading: true,
         form: new Form({
-          email: '',
           address1: '',
           address2: '',
           city: '',

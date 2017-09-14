@@ -1,10 +1,10 @@
 <template>
-  <div class="columns">
-    <div class="column is-12">
+    <div>
+      <h3 class="is-size-4 title has-text-weight-bold">Business <span class="has-text-weight-light has-text-grey">contact information</span></h3>
       <form @submit.prevent="onSubmit">
 
         <div class="field">
-          <label class="label" for="email">Email</label>
+          <label class="label" for="email">Business Email</label>
           <div :class="[ isLoading ? 'is-loading control' : 'control' ]">
             <input class="input is-medium" type="text" name="email" id="email" v-model="form.email" @input="form.errors.clear()">
             <span class="help is-danger" v-if="form.errors.has('name')" v-text="form.errors.get('email')"></span>
@@ -79,7 +79,6 @@
       </form>
       
     </div>
-  </div>
 </template>
 
 <script>
@@ -95,23 +94,23 @@
         console.log('submitted');
       },
 
-      fetchData() {
+      fetchData(wait = 2000) {
         const that = this;
         setTimeout(function() {
           that.isLoading = false;
-          that.form.email = 'glavender@wellstar.com';
+          that.form.email = 'drbridgettasher@wellstar.com';
           that.form.city = 'Kennesaw';
           that.form.address1 = '750 Townpark Ln NW';
           that.form.state = 'GA';
           that.form.zip = '30144';
           that.form.businessPhone = '4043650966';
-        }, 2000);
+        }, wait);
       },
     },
 
 
     mounted() {
-      this.fetchData();
+      this.fetchData(1000);
     },
 
     data () {

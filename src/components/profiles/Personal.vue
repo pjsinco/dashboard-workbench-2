@@ -1,8 +1,7 @@
 <template>
-  <div class="columns">
-    <div class="column is-12">
+    <div class="">
+      <h3 class="is-size-4 title has-text-weight-bold">Personal <span class="has-text-weight-light has-text-grey">information</span></h3>
       <form @submit.prevent="onSubmit">
-
         <div class="field">
           <label class="label" for="firstName">First Name</label>
           <div :class="[ isLoading ? 'is-loading control' : 'control' ]">
@@ -24,6 +23,14 @@
           <div :class="[ isLoading ? 'is-loading control' : 'control' ]">
             <input class="input is-medium" type="text" name="lastName" id="lastName" v-model="form.lastName" @input="form.errors.clear()">
             <span class="help is-danger" v-if="form.errors.has('name')" v-text="form.errors.get('lastName')"></span>
+          </div>
+        </div> <!-- .field -->
+
+        <div class="field">
+          <label class="label" for="email">Email</label>
+          <div :class="[ isLoading ? 'is-loading control' : 'control' ]">
+            <input class="input is-medium" type="text" name="email" id="email" v-model="form.email" @input="form.errors.clear()">
+            <span class="help is-danger" v-if="form.errors.has('name')" v-text="form.errors.get('email')"></span>
           </div>
         </div> <!-- .field -->
 
@@ -61,7 +68,7 @@
       </form>
       
     </div>
-  </div>
+  <!--</div>-->
 </template>
 
 <script>
@@ -78,20 +85,21 @@
       },
 
 
-      fetchData() {
+      fetchData(wait = 2000) {
         const that = this;
         setTimeout(function() {
           that.isLoading = false;
-          that.form.firstName = 'Gracie';
-          that.form.lastName = 'Henighan';
+          that.form.firstName = 'Bridgett';
+          that.form.lastName = 'Asher';
+          that.form.email = 'drbridgett@gmail.com';
           that.form.designation = 'DO';
-        }, 2000);
+        }, wait);
       }
 
     },
 
     created() {
-      this.fetchData();
+      this.fetchData(1000);
     },
     data () {
       return {
@@ -100,6 +108,7 @@
           firstName: '',
           middleName: '',
           lastName: '',
+          email: '',
           suffix: '',
           designation: '',
         })
