@@ -47,10 +47,10 @@ export default {
       const hour = new Date().getHours();
 
       let timeOfDay
-    
-      if (hour > 17) {
+
+      if (hour > 16) {
         timeOfDay = 'evening'
-      } else if (hour > 12) {
+      } else if (hour > 11) {
         timeOfDay =  'afternoon'
       } else {
         timeOfDay =  'morning'
