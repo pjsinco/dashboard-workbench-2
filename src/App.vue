@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav-header></nav-header>
-    <banner>Good afternoon, Dr. {{ lastName }}!</banner>
+    <banner>{{ salutation }}</banner>
     <div class="tabs banner-tabs">
       <div class="container">
         <ul>
@@ -40,7 +40,24 @@ export default {
 
   name: 'app',
 
-  methods: {
+  
+
+  computed: {
+    salutation() {
+      const hour = new Date().getHours();
+
+      let timeOfDay
+    
+      if (hour > 17) {
+        timeOfDay = 'evening'
+      } else if (hour > 12) {
+        timeOfDay =  'afternoon'
+      } else {
+        timeOfDay =  'morning'
+      }
+
+      return `Good ${timeOfDay}, Dr. ${this.lastName}!`
+    }
   },
 
   data () {

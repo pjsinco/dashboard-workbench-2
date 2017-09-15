@@ -2,7 +2,7 @@
   <div class="columns">
     <div class="column is-one-quarter">
       <nav class="panel temp-left-nav">
-        <router-link class="panel-block" tag="a" to="/profile" exact>Basic</router-link>
+        <router-link class="panel-block" tag="a" to="/profile" exact>Personal</router-link>
         <router-link class="panel-block" tag="a" to="/profile/contact">Home</router-link>
         <router-link class="panel-block" tag="a" to="/profile/contact/business">Business</router-link>
         <router-link class="panel-block" tag="a" to="/profile/login">Login</router-link>

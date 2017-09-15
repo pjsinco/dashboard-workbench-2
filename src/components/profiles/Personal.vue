@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <h3 class="is-size-4 title has-text-weight-bold">Basic <span class="has-text-weight-light has-text-grey">information</span></h3>
+    <h3 class="is-size-4 title has-text-weight-bold">Personal <span class="has-text-weight-light has-text-grey">information</span></h3>
     <form @submit.prevent="onSubmit">
       <div class="columns">
         <div class="column is-half" style="padding-bottom: 0;">
@@ -55,7 +55,7 @@
       </div> <!-- .field -->
 
       <div class="field">
-        <label class="label" for="website">Practice Website</label>
+        <label class="label" for="website">Website</label>
         <div :class="[ isLoading ? 'is-loading control' : 'control' ]">
           <input class="input is-medium" type="text" name="website" id="email" v-model="form.website" @input="form.errors.clear()">
           <span class="help is-danger" v-if="form.errors.has('website')" v-text="form.errors.get('website')"></span>
