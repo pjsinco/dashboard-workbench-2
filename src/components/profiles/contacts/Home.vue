@@ -30,13 +30,14 @@
 
         <div class="columns">
           <div class="column is-half">
-            <!-- TODO fix one-off style change below -->
             <div class="field">
               <label class="label" for="state">State</label>
-              <div class="select is-medium">
-                <select name="state" id="state" v-model="form.state">
-                  <option v-for="state in states" key="state.abbr" :value="state.abbr">{{ state.name }}</option>
-                </select>
+              <div class="control is-expanded">
+                <div class="select is-medium is-fullwidth">
+                  <select name="state" id="state" v-model="form.state">
+                    <option v-for="state in states" key="state.abbr" :value="state.abbr">{{ state.name }}</option>
+                  </select>
+                </div>
               </div>
             </div>
           </div>

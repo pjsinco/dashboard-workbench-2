@@ -57,9 +57,13 @@
         <div class="tile is-child box is-radiusless">
           <h4 class="title is-size-4 has-text-centered">AOA Membership</h4>
           <h3 class="has-text-centered title is-size-2 is-primary">Active</h3>
-          <h5 class="has-text-centered is-size-6 is-primary has-text-weight-bold">DO Member #023924</h5>
-          <p class="has-text-centered is-size-7 is-primary">Paid through May 31, 2018</p>
-          <div class="field has-addons" style="margin-top: 46px; margin-bottom: 0 !important;">
+          <h5 class="has-text-centered has-text-weight-light subtitle is-size-5" style="margin-bottom: 23px;">DO Member</h5>
+          <div class="tags has-addons" style="justify-content: center; margin-bottom: 0;">
+            <div class="tag is-dark">AOA ID</div>
+            <div class="tag">023924</div>
+          </div>
+          <p class="is-size-7 is-primary has-text-centered">Paid through May 31, 2018</p>
+          <div class="field has-addons" style="margin-top: 10px; margin-bottom: 0 !important;">
             <div class="control is-expanded">
               <div class="select is-fullwidth">
                 <select>
