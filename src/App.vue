@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav-header></nav-header>
-    <banner>{{ salutation }}</banner>
+    <banner><span v-if="!loading">{{ salutation }}</span></banner>
     <div class="tabs banner-tabs">
       <div class="container">
         <ul>
@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import store from './store.js'
 import NavHeader from './components/NavHeader.vue'
 import Banner from './components/Banner.vue'
 
@@ -40,8 +41,19 @@ export default {
 
   name: 'app',
 
-  
+  store,
 
+  created() {
+
+    this.$store.dispatch('getUser', 4)
+      .then(() => {
+        this.loading = false;
+      })
+      .catch(error => {
+        console.dir(error);
+      });
+  },
+  
   computed: {
     salutation() {
       const hour = new Date().getHours();
@@ -55,14 +67,14 @@ export default {
       } else {
         timeOfDay =  'morning'
       }
-
-      return `Good ${timeOfDay}, Dr. ${this.lastName}!`
+      return `Good ${timeOfDay}, Dr. ${this.$store.state.user.last_name}!`
     }
   },
 
   data () {
     return {
-      lastName: 'Asher',
+      loading: true,
+//      lastName: 'Asher',
     }
   },
 }

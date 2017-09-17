@@ -1,9 +1,9 @@
 <template>
   <div>
-    
     <div class="tile is-ancestor">
       <div class="tile is-4 is-parent">
         <div class="tile is-child box is-radiusless">
+<!--           <h4 class="title is-size-4 has-text-centered">Licensing for {{ doctor }}</h4> -->
           <h4 class="title is-size-4 has-text-centered">Licensing</h4>
           <table class="table is-fullwidth">
             <thead>
@@ -93,6 +93,14 @@
   export default {
 
     name: 'status',
+
+    computed: {
+
+      doctor() {
+        return this.$store.state.user.lastName;
+      },
+
+    },
 
     data () {
 
