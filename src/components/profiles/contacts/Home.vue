@@ -96,22 +96,31 @@
     },
 
     created() {
-      this.fetchData(750);
+      // this.fetchData(750);
+    },
+
+    computed: {
+
+      isLoading() {
+        return this.$store.state.loading;
+      },
+
+      form() {
+        return new Form({
+          address1:  this.$store.state.user.home_addr_1,
+          address2:  this.$store.state.user.home_addr_2,
+          city:      this.$store.state.user.home_city,
+          state:     this.$store.state.user.home_state,
+          zip:       this.$store.state.user.home_zip,
+          homePhone: this.$store.state.user.home_phone,
+        });
+      },
+
     },
 
     data () {
 
       return {
-        isLoading: true,
-        form: new Form({
-          address1: '',
-          address2: '',
-          city: '',
-          state: '',
-          zip: '',
-          homePhone: '',
-        }),
-
         states,
       }
     }

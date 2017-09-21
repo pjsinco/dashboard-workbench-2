@@ -11,9 +11,6 @@
           <router-link tag="li" to="/profile">
             <a>Edit Profile</a>
           </router-link>
-
-          <!--<li><a href="#">Dashboard</a></li>-->
-          <!--<li><a href="#">Profile</a></li>-->
         </ul>
       </div> <!-- .container -->
     </div> <!-- .tabs -->
@@ -45,9 +42,9 @@ export default {
 
   created() {
 
-    this.$store.dispatch('getUser', 4)
+    this.$store.dispatch('getUser', 22)
       .then(() => {
-        this.loading = false;
+        // this.loading = false;
       })
       .catch(error => {
         console.dir(error);
@@ -68,12 +65,16 @@ export default {
         timeOfDay =  'morning'
       }
       return `Good ${timeOfDay}, Dr. ${this.$store.state.user.last_name}!`
+    },
+
+    loading() {
+      return this.$store.state.loading;
     }
   },
 
   data () {
     return {
-      loading: true,
+//      loading: true,
 //      lastName: 'Asher',
     }
   },

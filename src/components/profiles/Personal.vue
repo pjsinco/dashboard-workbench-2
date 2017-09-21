@@ -101,19 +101,34 @@
     },
 
     created() {
-      this.fetchData(1000);
+      //this.fetchData(1000);
+      //console.dir(this.$store.state.user);
+      
     },
+
+    computed: {
+      userData() {
+        return this.$store.state.user;
+      },
+
+      isLoading() {
+        return this.$store.state.loading;
+      },
+
+      form() {
+        return new Form({
+          firstName:  this.$store.state.user.first_name,
+          middleName: this.$store.state.user.middle_name,
+          lastName:   this.$store.state.user.last_name,
+          suffix:     this.$store.state.user.suffix,
+          email:      this.$store.state.user.email,
+          website:    this.$store.state.user.website,
+        });
+      }
+    },
+
     data () {
       return {
-        isLoading: true,
-        form: new Form({
-          firstName: '',
-          middleName: '',
-          lastName: '',
-          suffix: '',
-          email: '',
-          website: '',
-        })
       }
     }
   }

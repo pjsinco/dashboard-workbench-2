@@ -104,25 +104,28 @@
       },
     },
 
+    computed: {
 
-    mounted() {
-      this.fetchData(1000);
+      isLoading() {
+        return this.$store.state.loading;
+      },
+
+      form() {
+        return new Form({
+          email: 'TODO',
+          address1:  this.$store.state.user.bus_addr_1,
+          address2:  this.$store.state.user.bus_addr_2,
+          city:      this.$store.state.user.bus_city,
+          state:     this.$store.state.user.bus_state,
+          zip:       this.$store.state.user.bus_zip,
+          homePhone: this.$store.state.user.bus_phone,
+        });
+      },
+
     },
 
     data () {
-
       return {
-        isLoading: true,
-        form: new Form({
-          email: '',
-          address1: '',
-          address2: '',
-          city: '',
-          state: '',
-          zip: '',
-          businessPhone: '',
-        }),
-
         states,
       }
     }

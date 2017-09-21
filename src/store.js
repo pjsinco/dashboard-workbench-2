@@ -6,11 +6,8 @@ Vue.use(Vuex)
 
 const state = {
 
-  user: {
-
-
-  },
-
+  user: {},
+  loading: true,
 }
 
 const mutations = {
@@ -19,6 +16,9 @@ const mutations = {
     state.user = user;
   },
 
+  setLoading(state, isLoading = false) {
+    state.loading = isLoading;
+  }
 }
 
 const actions = {
@@ -27,12 +27,14 @@ const actions = {
 
     return new Promise((resolve, reject) => {
 
-      axios.get('http://dashboardproto.app/api/v1/doctor/' + id)
+      axios.get('http://dashboardproto.app/api/v1/doctors/' + id)
         .then(data => {
+          store.commit('setLoading', false);
           store.commit('setUser', data.data);
           resolve();
         })
         .catch(error => {
+          store.commit('setLoading', false);
           console.dir(error);
           reject(error);
         });
