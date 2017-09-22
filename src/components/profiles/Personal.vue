@@ -82,14 +82,21 @@
 
     methods: {
 
+      handleInputUpdate(evt) {
+        this.form.errors.clear()
+        this.$store.commit('updateUser', { [evt.target.name]: evt.target.value })
+      },
+
       onSubmit() {
         this.form.post('http://dashboardproto.app/api/v1/users/' + 
                        this.$store.state.user.id)
           .then(response => {
             this.$store.dispatch('updateUser', response)
+            
           })
           .catch(error => {
-console.dir(error);
+
+console.log(this.form.errors.has('last_name'));
           });
 //          .then(() => {
 //            // this.loading = false;
@@ -124,6 +131,26 @@ console.dir(error);
         return this.$store.state.loading;
       },
 
+//      formData() {
+//        return {
+//          first_name:  this.$store.state.user.first_name,
+//          middle_name: this.$store.state.user.middle_name,
+//          last_name:   this.$store.state.user.last_name,
+//          suffix:     this.$store.state.user.suffix,
+//          email:      this.$store.state.user.email,
+//          website:    this.$store.state.user.website,
+//        }
+//      },
+//
+//    },
+
+      first_name() {  return this.$store.state.user.first_name },
+      middle_name() { return this.$store.state.user.middle_name },
+      last_name() {   return this.$store.state.user.last_name },
+      suffix() {     return this.$store.state.user.suffix },
+      email() {      return this.$store.state.user.email },
+      website() {    return this.$store.state.user.website },
+
       form() {
         return new Form({
           first_name:  this.$store.state.user.first_name,
@@ -136,8 +163,29 @@ console.dir(error);
       }
     },
 
+    watch: {
+
+//      form: {
+//        handler: function(newForm) {
+//          this.form.first_name = newForm.first_name;
+//          this.form.last_name = newForm.last_name;
+//        },
+//        deep: true,
+//        immediate: true,
+//      },
+
+    },
+
     data () {
       return {
+//        form: new Form({
+//          first_name:  this.$store.state.user.first_name,
+//          middle_name: this.$store.state.user.middle_name,
+//          last_name:   this.$store.state.user.last_name,
+//          suffix:     this.$store.state.user.suffix,
+//          email:      this.$store.state.user.email,
+//          website:    this.$store.state.user.website,
+//        })
       };
     }
   }

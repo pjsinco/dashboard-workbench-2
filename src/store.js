@@ -59,15 +59,15 @@ const mutations = {
 
 const actions = {
 
-  getUser(store, id) {
+  fetchUser(store, id) {
 
     return new Promise((resolve, reject) => {
 
       axios.get(`${apiUrl}/users/${id}`)
         .then(data => {
           store.commit('setLoading', false);
-          store.commit('setUser', data.data);
-          resolve();
+          //store.commit('setUser', data.data);
+          resolve(data);
         })
         .catch(error => {
           store.commit('setLoading', false);
@@ -102,6 +102,8 @@ const actions = {
 }
 
 export default new Vuex.Store({
+
+  strict: true,
 
   state,
   mutations,

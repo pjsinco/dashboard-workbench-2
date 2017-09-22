@@ -42,12 +42,12 @@ export default {
 
   created() {
 
-    this.$store.dispatch('getUser', 22)
-      .then(() => {
-        // this.loading = false;
+    this.$store.dispatch('fetchUser', 22)
+      .then((userData) => {
+        this.$store.dispatch('updateUser', userData.data)
       })
       .catch(error => {
-        console.dir(error);
+console.dir(error);
       });
   },
   
