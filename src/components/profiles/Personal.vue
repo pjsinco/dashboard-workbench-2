@@ -30,7 +30,19 @@
             <label class="label" for="last_name">Last Name</label>
             <div :class="[ isLoading ? 'is-loading control' : 'control' ]">
               <input class="input is-medium" type="text" name="last_name" id="last_name" v-model="form.last_name" @input="form.errors.clear()">
-              <span class="help is-danger" v-if="form.errors.has('last_name')" v-text="form.errors.get('last_name')"></span>
+
+
+
+
+<!--               <span class="help is-danger" v-if="form.errors.has('last_name')" v-text="form.errors.get('last_name')"></span> -->
+
+<!-- TODO Compare v-if directive in this span to the one above-->
+              <span class="help is-danger" v-if="errors.has('last_name')" v-text="errors.get('last_name')"></span>
+
+
+
+
+
             </div>
           </div> <!-- .field -->
         </div> <!-- .column -->
@@ -74,7 +86,9 @@
 </template>
 
 <script>
+  import _ from 'lodash';
   import Form from './../../utils/Form';
+  import Errors from './../../utils/Errors';
 
   export default {
 
@@ -95,8 +109,8 @@
             
           })
           .catch(error => {
-
-console.log(this.form.errors.has('last_name'));
+            this.$store.dispatch('setError', error.errors);
+console.log(this.errors.has('last_name'));
           });
 //          .then(() => {
 //            // this.loading = false;
@@ -124,32 +138,13 @@ console.log(this.form.errors.has('last_name'));
       //this.fetchData(1000);
       //console.dir(this.$store.state.user);
       
+      this.$data.form = _.cloneDeep(this.formData)
     },
 
     computed: {
       isLoading() {
         return this.$store.state.loading;
       },
-
-//      formData() {
-//        return {
-//          first_name:  this.$store.state.user.first_name,
-//          middle_name: this.$store.state.user.middle_name,
-//          last_name:   this.$store.state.user.last_name,
-//          suffix:     this.$store.state.user.suffix,
-//          email:      this.$store.state.user.email,
-//          website:    this.$store.state.user.website,
-//        }
-//      },
-//
-//    },
-
-      first_name() {  return this.$store.state.user.first_name },
-      middle_name() { return this.$store.state.user.middle_name },
-      last_name() {   return this.$store.state.user.last_name },
-      suffix() {     return this.$store.state.user.suffix },
-      email() {      return this.$store.state.user.email },
-      website() {    return this.$store.state.user.website },
 
       form() {
         return new Form({
@@ -159,33 +154,25 @@ console.log(this.form.errors.has('last_name'));
           suffix:     this.$store.state.user.suffix,
           email:      this.$store.state.user.email,
           website:    this.$store.state.user.website,
-        });
-      }
+        })
+      },
+
+
+      // TODO: Break errors out of Form
+      // TODO: Break errors out of Form
+      // TODO: Break errors out of Form
+      // TODO: Break errors out of Form
+      // TODO: Break errors out of Form
+
+
+      errors() {
+        return this.$store.state.errors;
+      },
     },
 
-    watch: {
-
-//      form: {
-//        handler: function(newForm) {
-//          this.form.first_name = newForm.first_name;
-//          this.form.last_name = newForm.last_name;
-//        },
-//        deep: true,
-//        immediate: true,
-//      },
-
-    },
 
     data () {
       return {
-//        form: new Form({
-//          first_name:  this.$store.state.user.first_name,
-//          middle_name: this.$store.state.user.middle_name,
-//          last_name:   this.$store.state.user.last_name,
-//          suffix:     this.$store.state.user.suffix,
-//          email:      this.$store.state.user.email,
-//          website:    this.$store.state.user.website,
-//        })
       };
     }
   }

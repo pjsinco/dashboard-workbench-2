@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 import api from './utils/api.js'
+import Errors from './utils/Errors.js'
 
 Vue.use(Vuex)
 
@@ -40,6 +41,8 @@ const state = {
 
   user: {},
   loading: true,
+
+  errors: new Errors(),
 }
 
 const mutations = {
@@ -47,6 +50,12 @@ const mutations = {
   setUser(state, user) {
     state.user = user;
   },
+  
+  setError(state, errors) {
+    state.errors = new Errors(Object.assign({}, state.errors, errors))
+  },
+
+  
 
   updateUser(state, data) {
     state.user = Object.assign({}, state.user, data);
@@ -58,6 +67,10 @@ const mutations = {
 }
 
 const actions = {
+
+  setError(store, errors) {
+    store.commit('setError', errors)
+  },
 
   fetchUser(store, id) {
 
