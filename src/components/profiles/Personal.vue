@@ -1,3 +1,9 @@
+/**
+ * @see https://www.reddit.com/r/vuejs/comments/5lbw9b/how_do_you_handle_forms_in_the_context_of_vuex/
+ *
+ * TODO call Vuex actions in Form class?
+ */
+
 <template>
   <div class="">
     <h3 class="is-size-4 title has-text-weight-bold">Personal <span class="has-text-weight-light has-text-grey">information</span></h3>
@@ -29,20 +35,8 @@
           <div class="field">
             <label class="label" for="last_name">Last Name</label>
             <div :class="[ isLoading ? 'is-loading control' : 'control' ]">
-              <input class="input is-medium" type="text" name="last_name" id="last_name" v-model="form.last_name" @input="form.errors.clear()">
-
-
-
-
-<!--               <span class="help is-danger" v-if="form.errors.has('last_name')" v-text="form.errors.get('last_name')"></span> -->
-
-<!-- TODO Compare v-if directive in this span to the one above-->
-              <span class="help is-danger" v-if="errors.has('last_name')" v-text="errors.get('last_name')"></span>
-
-
-
-
-
+              <input class="input is-medium" :class="[ form.errors.has('last_name') ? 'is-danger' : '' ]" type="text" name="last_name" id="last_name" v-model="form.last_name" @input="form.errors.clear()">
+              <span class="help is-danger" v-if="form.errors.has('last_name')" v-text="form.errors.get('last_name')"></span>
             </div>
           </div> <!-- .field -->
         </div> <!-- .column -->
@@ -106,39 +100,13 @@
                        this.$store.state.user.id)
           .then(response => {
             this.$store.dispatch('updateUser', response)
-            
           })
           .catch(error => {
-            this.$store.dispatch('setError', error.errors);
-console.log(this.errors.has('last_name'));
+//console.log(this.errors.has('last_name'));
           });
-//          .then(() => {
-//            // this.loading = false;
-//          })
-//          .catch(error => {
-//            console.dir(error);
-//          });
       },
 
 
-      fetchData(wait = 2000) {
-        const that = this;
-        setTimeout(function() {
-          that.isLoading = false;
-          that.form.first_name = 'Bridgett';
-          that.form.last_name = 'Asher';
-          that.form.email = 'drbridgett@gmail.com';
-          that.form.designation = 'DO';
-        }, wait);
-      }
-
-    },
-
-    created() {
-      //this.fetchData(1000);
-      //console.dir(this.$store.state.user);
-      
-      this.$data.form = _.cloneDeep(this.formData)
     },
 
     computed: {
@@ -146,33 +114,49 @@ console.log(this.errors.has('last_name'));
         return this.$store.state.loading;
       },
 
-      form() {
-        return new Form({
-          first_name:  this.$store.state.user.first_name,
-          middle_name: this.$store.state.user.middle_name,
-          last_name:   this.$store.state.user.last_name,
-          suffix:     this.$store.state.user.suffix,
-          email:      this.$store.state.user.email,
-          website:    this.$store.state.user.website,
-        })
-      },
+//      form() {
+//        return new Form({
+//          first_name:  this.$store.state.user.first_name,
+//          middle_name: this.$store.state.user.middle_name,
+//          last_name:   this.$store.state.user.last_name,
+//          suffix:     this.$store.state.user.suffix,
+//          email:      this.$store.state.user.email,
+//          website:    this.$store.state.user.website,
+//        })
+//      },
+    },
 
+    created() {
+      /**
+       * @see https://vuex.vuejs.org/en/api.html#vuexstore-instance-methods
+       *
+       */
+      this.$store.subscribe((mutation, state) => {
 
-      // TODO: Break errors out of Form
-      // TODO: Break errors out of Form
-      // TODO: Break errors out of Form
-      // TODO: Break errors out of Form
-      // TODO: Break errors out of Form
-
-
-      errors() {
-        return this.$store.state.errors;
-      },
+        if (mutation.type === 'updateUser') {
+          this.$data.form = new Form(Object.assign({}, {
+            first_name:  mutation.payload.first_name,
+            middle_name: mutation.payload.middle_name,
+            last_name:   mutation.payload.last_name,
+            suffix:      mutation.payload.suffix,
+            email:       mutation.payload.email,
+            website:     mutation.payload.website,
+          }))
+        }
+      });
     },
 
 
     data () {
       return {
+        form: new Form(Object.assign({}, {
+          first_name:  this.$store.state.user.first_name,
+          middle_name: this.$store.state.user.middle_name,
+          last_name:   this.$store.state.user.last_name,
+          suffix:      this.$store.state.user.suffix,
+          email:       this.$store.state.user.email,
+          website:     this.$store.state.user.website,
+        }))
       };
     }
   }
