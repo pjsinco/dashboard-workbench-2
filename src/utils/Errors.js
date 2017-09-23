@@ -2,8 +2,8 @@ class Errors {
   /**
    * Create a new Errors instance.
    */
-  constructor() {
-    this.errors = {};
+  constructor(errors = {}) {
+    this.errors = errors;
   }
 
 
@@ -22,6 +22,14 @@ class Errors {
    */
   any() {
     return Object.keys(this.errors).length > 0;
+  }
+
+  /**
+   * Get all errors
+   *
+   */
+  all() {
+    return this.errors
   }
 
 
