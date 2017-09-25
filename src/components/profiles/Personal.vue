@@ -129,7 +129,9 @@
     created() {
       /**
        * @see https://vuex.vuejs.org/en/api.html#vuexstore-instance-methods
-       *
+       * 
+       * We'll watch for store changes and then update
+       * our local form data.
        */
       this.$store.subscribe((mutation, state) => {
 
@@ -149,6 +151,12 @@
 
     data () {
       return {
+
+        /**
+         * Clone user data for our local form.
+         * When we have new, validated data that the store
+         * should know about, we'll call mutations.
+         */
         form: new Form(Object.assign({}, {
           first_name:  this.$store.state.user.first_name,
           middle_name: this.$store.state.user.middle_name,

@@ -12,6 +12,7 @@ const state = {
 
   user: {},
   loading: true,
+  cmeData: {},
 }
 
 const mutations = {
@@ -20,14 +21,17 @@ const mutations = {
     state.user = user;
   },
   
-
   updateUser(state, data) {
     state.user = Object.assign({}, state.user, data);
   },
   
   setLoading(state, isLoading = false) {
     state.loading = isLoading;
-  }
+  },
+
+  setCmeData(state, data) {
+    state.cmeData = data;
+  },
 }
 
 const actions = {
@@ -48,6 +52,23 @@ const actions = {
           reject(error);
         });
     });
+  },
+
+  fetchUserCme(store, id) {
+
+    return new Promise((resolve, reject) => {
+      axios.get(`${apiUrl}/users/${id}/cme`)
+        .then(data => {
+          store.commit('setLoading', false)
+          resolve(data)
+        }) 
+        .catch(error => {
+          store.commit('setLoading', false)
+          console.dir(error);
+          reject(error)
+        })
+    })
+
   },
 
   updateUser(store, data) {
