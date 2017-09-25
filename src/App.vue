@@ -16,7 +16,7 @@
     </div> <!-- .tabs -->
     <div class="main">
       <section class="section">
-        <div class="container">
+        <div class="container" v-if="cmeLoaded">
           <router-view></router-view>
         </div>
       </section>
@@ -47,6 +47,7 @@ export default {
         this.$store.commit('updateUser', userData.data)
         this.$store.dispatch('fetchUserCme', 22)
           .then((cmeData) => {
+            this.cmeLoaded = true;
             this.$store.commit('setCmeData', cmeData.data)
           })
       })
@@ -56,6 +57,7 @@ console.dir(error);
   },
   
   computed: {
+
     salutation() {
       const hour = new Date().getHours();
 
@@ -78,6 +80,7 @@ console.dir(error);
 
   data () {
     return {
+      cmeLoaded: false,
     }
   },
 }
