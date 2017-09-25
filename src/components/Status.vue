@@ -83,6 +83,7 @@
       <div class="tile is-12 is-parent">
         <div class="tile is-child box is-radiusless">
           <h4 class="title is-size-4 has-text-centered">CME Progress</h4>
+          {{ primaries }}
         </div>
       </div>
     </div>
@@ -95,6 +96,10 @@
     name: 'status',
 
     computed: {
+
+      primaries() {
+        return this.$store.state.cmeData.primaries.length
+      },
 
       doctor() {
         return this.$store.state.user.lastName;

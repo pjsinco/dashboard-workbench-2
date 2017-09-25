@@ -44,7 +44,11 @@ export default {
 
     this.$store.dispatch('fetchUser', 22)
       .then((userData) => {
-        this.$store.dispatch('updateUser', userData.data)
+        this.$store.commit('updateUser', userData.data)
+        this.$store.dispatch('fetchUserCme', 22)
+          .then((cmeData) => {
+            this.$store.commit('setCmeData', cmeData.data)
+          })
       })
       .catch(error => {
 console.dir(error);
@@ -74,8 +78,6 @@ console.dir(error);
 
   data () {
     return {
-//      loading: true,
-//      lastName: 'Asher',
     }
   },
 }
