@@ -1,18 +1,25 @@
 <template>
-  <span>
-    {{ message }}
-  </span>
+  <div>
+    <p>{{ message }}</p>
+    <button id="toggleMessage" @click="toggle">Change message</button>
+  </div>
 </template>
 
 <script>
   export default {
 
-    name: 'messageToggle',
+    name: 'message-toggle',
+
+    methods: {
+      toggle() {
+        this.message = this.message === 'message' ? 'toggled message' : 'message'
+      }
+    },
 
     data () {
 
       return {
-        message: 'message'
+        message: 'default message'
       }
     }
   }
