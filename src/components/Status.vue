@@ -83,7 +83,9 @@
       <div class="tile is-12 is-parent">
         <div class="tile is-child box is-radiusless">
           <h4 class="title is-size-4 has-text-centered">CME Progress</h4>
-          {{ primaries }}
+            <div class="columns" v-for="(primary, index) in primaries">
+              <progress-bar :id="'primary-' + index" :chart-data="primary"></progress-bar>
+            </div>
         </div>
       </div>
     </div>
@@ -91,28 +93,37 @@
 </template>
 
 <script>
-  export default {
+import * as d3 from 'd3'
+import ProgressBar from './ProgressBar.vue'
 
-    name: 'status',
+export default {
 
-    computed: {
+  name: 'status',
 
-      primaries() {
-        return this.$store.state.cmeData.primaries.length
-      },
+  components: {
 
-      doctor() {
-        return this.$store.state.user.lastName;
-      },
+    ProgressBar
 
+  },
+
+  computed: {
+
+    primaries() {
+      return this.$store.state.cmeData.primaries
     },
 
-    data () {
+    doctor() {
+      return this.$store.state.user.lastName;
+    },
 
-      return {
-      }
+  },
+
+  data () {
+
+    return {
     }
   }
+}
 </script>
 
 <style lang="scss">
