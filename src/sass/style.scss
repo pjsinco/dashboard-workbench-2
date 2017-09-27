@@ -179,6 +179,7 @@ body {
 
   & li.is-active a {
     color: $white;
+    opacity: 1;
     border-bottom: none;
   }
 
