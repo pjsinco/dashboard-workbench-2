@@ -13,12 +13,17 @@ const state = {
   user: {},
   loading: true,
   cmeData: {},
+  selectedPrimary: '',
 }
 
 const mutations = {
 
   setUser(state, user) {
-    state.user = user;
+    state.user = user
+  },
+
+  setSelectedPrimary(state, primary) {
+    state.selectedPrimary = primary
   },
   
   updateUser(state, data) {
@@ -26,11 +31,11 @@ const mutations = {
   },
   
   setLoading(state, isLoading = false) {
-    state.loading = isLoading;
+    state.loading = isLoading
   },
 
   setCmeData(state, data) {
-    state.cmeData = data;
+    state.cmeData = data
   },
 }
 

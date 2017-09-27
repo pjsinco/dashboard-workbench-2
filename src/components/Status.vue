@@ -83,15 +83,7 @@
         <div class="tile is-child box is-radiusless">
           <h4 class="title is-size-4 has-text-centered">CME Progress</h4>
             <div class="columns">
-              <div class="column">
-                <div class="control" v-if="showPrimarySelect">
-                  <div class="select">
-                    <select v-model="selectedPrimary">
-                      <option v-for="primary in primaries" :value="primary.desc">{{ primary.desc }}</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
+              <cme-header ></cme-header>
             </div>
             <div class="columns">
               <cme-tableau v-for="(primary, index) in primaries" :key="index" :primary="primary" v-if="selectedPrimary === primary.desc"></cme-tableau>
@@ -105,6 +97,7 @@
 <script>
 import * as d3 from 'd3'
 import CmeTableau from './CmeTableau.vue'
+import CmeHeader from './CmeHeader.vue'
 
 export default {
 
@@ -112,7 +105,7 @@ export default {
 
   components: {
 
-    CmeTableau
+    CmeTableau, CmeHeader
 
   },
 
@@ -127,28 +120,14 @@ export default {
     },
 
     doctor() {
-      return this.$store.state.user.lastName;
+      return this.$store.state.user.lastName
     },
 
-  },
-
-  created() {
-    if (this.primaries.length > 0) {
-      this.$data.selectedPrimary = this.primaries[0].desc
-    } 
-
-    if (this.primaries.length > 1) {
-      this.showPrimarySelect = true
+    selectedPrimary() {
+      return this.$store.state.selectedPrimary
     }
   },
 
-  data () {
-
-    return {
-      showPrimarySelect: false,
-      selectedPrimary: ''
-    }
-  }
 }
 </script>
 
