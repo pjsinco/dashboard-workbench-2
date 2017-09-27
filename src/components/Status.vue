@@ -40,7 +40,7 @@
             </thead>
             <tbody>
               <tr>
-                <td>Radiology</td>
+                <td>Pediatrics</td>
                 <td>2021</td>
               </tr>
                 <td>Family Medicine</td>
@@ -66,7 +66,7 @@
             <div class="control is-expanded">
               <div class="select is-fullwidth">
                 <select>
-                  <option>See benefits</option>
+                  <option>Get benefits</option>
                 </select>
               </div>
             </div>
@@ -78,7 +78,7 @@
       </div>
     </div>
 
-    <div class="tile is-ancestor">
+    <div class="tile is-ancestor" id="cmeProgress">
       <div class="tile is-12 is-parent">
         <div class="tile is-child box is-radiusless">
           <h4 class="title is-size-4 has-text-centered">CME Progress</h4>
@@ -86,6 +86,7 @@
               <cme-header ></cme-header>
             </div>
             <cme-tableau v-for="(primary, index) in primaries" :key="index" :primary="primary" v-if="selectedPrimary === primary.desc"></cme-tableau>
+            <p class="content has-text-centered" style="padding-top: 11px;"><button class="button is-primary">See details</button></p>
         </div>
       </div>
     </div>

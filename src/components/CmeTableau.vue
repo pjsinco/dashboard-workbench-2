@@ -1,5 +1,5 @@
 <template>
-  <div class="columns" >
+  <div class="columns" id="progress">
     <div class="column has-text-centered" v-for="(progressBar, index) in progressBars" >
       <progress-bar :key="index" :id="'progress-' + index" :chart-data="progressBar"></progress-bar>
     </div>
@@ -33,6 +33,7 @@ export default {
         bars.push({
           earned: this.primary.general.earned,
           required: this.primary.generalRequired,
+          name: 'General',
         });
       }
 
@@ -40,13 +41,15 @@ export default {
         bars.push({
           earned: this.primary.general.cat1aEarned,
           required: this.primary.cat1aRequired,
+          name: 'AOA Category 1-A',
         });
       }
 
-      // TODO ... handle primaries, subs
+      // TODO Handle subs
       bars.push({
         earned: this.primary.earned,
         required: this.primary.required,
+        name: 'Specialty',
         subs: this.primary.subs
       })
 
