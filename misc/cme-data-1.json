@@ -1,0 +1,17 @@
+{
+  "aoa_id": "269803",
+  "general": {
+    "earned": 17.0,
+    "cat1aEarned": 2.5
+  },
+  "primaries": [
+    {
+      "desc": "Pediatics",
+      "earned": 5.5,
+      "required": 50.0,
+      "generalRequired": 120.0,
+      "cat1aRequired": 0.0,
+    }
+  ]
+}
+

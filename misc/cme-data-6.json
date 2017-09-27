@@ -1,0 +1,22 @@
+{
+  "aoa_id": "269806",
+  "general": {
+    "earned": 63.0,
+    "cat1aEarned": 12.5
+  },
+  "primaries": [
+    {
+      "desc": "Internal Medicine",
+      "earned": 42.0,
+      "required": 30.0,
+      "generalRequired": 120.0,
+      "cat1aRequired": 0.0,
+      "subs": [
+        "desc": "Interventional Cardiology",
+        "earned": 11.5,
+        "required": 15.0
+      ]
+    }
+  ]
+}
+

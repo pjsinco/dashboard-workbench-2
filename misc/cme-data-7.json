@@ -1,0 +1,18 @@
+{
+  "aoa_id": "269807",
+  "general": {
+    "earned": 123.0,
+    "cat1aEarned": 23.5
+  },
+  "primaries": [
+    {
+      "desc": "Internal Medicine",
+      "earned": 22.0,
+      "required": 30.0,
+      "generalRequired": 120.0,
+      "cat1aRequired": 0.0,
+      "subs": []
+    }
+  ]
+}
+

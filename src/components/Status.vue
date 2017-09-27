@@ -3,7 +3,6 @@
     <div class="tile is-ancestor">
       <div class="tile is-4 is-parent">
         <div class="tile is-child box is-radiusless">
-<!--           <h4 class="title is-size-4 has-text-centered">Licensing for {{ doctor }}</h4> -->
           <h4 class="title is-size-4 has-text-centered">Licensing</h4>
           <table class="table is-fullwidth">
             <thead>
@@ -83,8 +82,19 @@
       <div class="tile is-12 is-parent">
         <div class="tile is-child box is-radiusless">
           <h4 class="title is-size-4 has-text-centered">CME Progress</h4>
-            <div class="columns" v-for="(primary, index) in primaries">
-              <progress-bar :id="'primary-' + index" :chart-data="primary"></progress-bar>
+            <div class="columns">
+              <div class="column">
+                <div class="control" v-if="showPrimarySelect">
+                  <div class="select">
+                    <select v-model="selectedPrimary">
+                      <option v-for="primary in primaries" :value="primary.desc">{{ primary.desc }}</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="columns">
+              <cme-tableau v-for="(primary, index) in primaries" :key="index" :primary="primary" v-if="selectedPrimary === primary.desc"></cme-tableau>
             </div>
         </div>
       </div>
@@ -94,7 +104,7 @@
 
 <script>
 import * as d3 from 'd3'
-import ProgressBar from './ProgressBar.vue'
+import CmeTableau from './CmeTableau.vue'
 
 export default {
 
@@ -102,14 +112,18 @@ export default {
 
   components: {
 
-    ProgressBar
+    CmeTableau
 
   },
 
   computed: {
 
     primaries() {
-      return this.$store.state.cmeData.primaries
+      return this.$store.state.cmeData.primaries.map(primary => {
+        return Object.assign({}, 
+                             primary ,
+                             { general: this.$store.state.cmeData.general })
+      })
     },
 
     doctor() {
@@ -118,9 +132,21 @@ export default {
 
   },
 
+  created() {
+    if (this.primaries.length > 0) {
+      this.$data.selectedPrimary = this.primaries[0].desc
+    } 
+
+    if (this.primaries.length > 1) {
+      this.showPrimarySelect = true
+    }
+  },
+
   data () {
 
     return {
+      showPrimarySelect: false,
+      selectedPrimary: ''
     }
   }
 }

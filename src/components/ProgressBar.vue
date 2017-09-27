@@ -1,7 +1,5 @@
 <template>
-  <div class="column">
-    <svg class="" :id="id"> </svg>
-  </div>
+  <svg class="" :id="id"></svg>
 </template>
 
 <script>
@@ -15,19 +13,16 @@ export default {
   name: 'progress-bar',
 
   computed: {
-
-    required() {
-      
-    },
-
-    earned() {
-
-    },
   },
 
   data() {
     return {
+
     }
+  },
+
+  created() {
+    console.dir(this.chartData);
   },
 
   methods: {
