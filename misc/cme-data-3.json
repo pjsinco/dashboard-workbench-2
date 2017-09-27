@@ -1,0 +1,32 @@
+{
+  "aoa_id": "269804",
+  "general": {
+    "earned": 97.0,
+    "cat1aEarned": 22.5
+  },
+  "primaries": [
+    {
+      "desc": "Pediatics",
+      "earned": 65.5,
+      "required": 50.0,
+      "generalRequired": 120.0,
+      "cat1aRequired": 0.0,
+      "subs": [
+        {
+          "desc": "Pediatric Neurology",
+          "earned": 11.5,
+          "required": 13.0
+        }
+      ]
+    },
+    {
+      "desc": "Family Medicine",
+      "earned": 23.0,
+      "required": 30.0,
+      "generalRequired": 150.0,
+      "cat1aRequired": 30.0,
+      "subs": []
+    }
+  ]
+}
+

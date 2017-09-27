@@ -47,13 +47,23 @@ export default {
         this.$store.commit('updateUser', userData.data)
         this.$store.dispatch('fetchUserCme', 22)
           .then((cmeData) => {
+
+            const data = cmeData.data
+
             this.cmeLoaded = true;
-            this.$store.commit('setCmeData', cmeData.data)
+            this.$store.commit('setCmeData', data)
+
+            if (data.primaries.length) {
+              this.$store.commit('setSelectedPrimary', 
+                                 data.primaries[0].desc)
+            }
+
           })
       })
       .catch(error => {
 console.dir(error);
       });
+
   },
   
   computed: {

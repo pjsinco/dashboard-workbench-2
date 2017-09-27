@@ -1,0 +1,18 @@
+{
+  "aoa_id": "269806",
+  "general": {
+    "earned": 92.0,
+    "cat1aEarned": 22.5
+  },
+  "primaries": [
+    {
+      "desc": "Family Medicine",
+      "earned": 73.5,
+      "required": 30.0,
+      "generalRequired": 150.0,
+      "cat1aRequired": 30.0,
+      "subs": []
+    }
+  ]
+}
+
