@@ -1,7 +1,9 @@
 <template>
   <div>
     <nav-header></nav-header>
-    <banner><span v-if="!loading">{{ salutation }}</span></banner>
+    <banner>
+      <salutation :name="name" v-show="!loading"></salutation>
+    </banner>
     <div class="tabs banner-tabs">
       <div class="container">
         <ul>
@@ -28,12 +30,14 @@
 import store from './store.js'
 import NavHeader from './components/NavHeader.vue'
 import Banner from './components/Banner.vue'
+import Salutation from './components/Salutation.vue'
 
 export default {
 
   components: {
     NavHeader,
     Banner,
+    Salutation,
   },
 
   name: 'app',
@@ -42,10 +46,12 @@ export default {
 
   created() {
 
-    this.$store.dispatch('fetchUser', 22)
+    const userId = 22
+
+    this.$store.dispatch('fetchUser', userId)
       .then((userData) => {
         this.$store.commit('updateUser', userData.data)
-        this.$store.dispatch('fetchUserCme', 22)
+        this.$store.dispatch('fetchUserCme', userId)
           .then((cmeData) => {
 
             const data = cmeData.data
@@ -68,19 +74,8 @@ console.dir(error);
   
   computed: {
 
-    salutation() {
-      const hour = new Date().getHours();
-
-      let timeOfDay
-
-      if (hour > 16) {
-        timeOfDay = 'evening'
-      } else if (hour > 11) {
-        timeOfDay =  'afternoon'
-      } else {
-        timeOfDay =  'morning'
-      }
-      return `Good ${timeOfDay}, Dr. ${this.$store.state.user.last_name}!`
+    name() {
+      return this.$store.state.user.last_name
     },
 
     loading() {
