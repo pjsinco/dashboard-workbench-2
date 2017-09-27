@@ -1,5 +1,5 @@
 <template>
-  <svg class="" :id="id"></svg>
+  <svg :id="id"></svg>
 </template>
 
 <script>
@@ -17,7 +17,7 @@ export default {
 
   data() {
     return {
-
+      transitionDuration: 750,
     }
   },
 
@@ -59,23 +59,41 @@ export default {
         .cornerRadius(10)
         .startAngle(0)
 
+      const progress = this.chartData.earned / this.chartData.required
+
+      const color = colorScale(progress * tau)
+
       // Add the background arc, from 0 to 100% (tau)
       const background = g.append('path')
         .datum({endAngle: tau})
-        .attr('fill', '#d0d0d0')
+        .classed('progress-background', true)
+        .attr('fill', '#ffffff')
         .attr('d', arc)
 
       const foreground = g.append('path')
         .datum({endAngle: startAngle * tau})
-        .attr('fill', 'orange')
+        .attr('fill', '#ffffff')
         .attr('d', arc)
 
+
+      // TODO Temporary
       // Every so often, start a transition to a new random angle.
-      d3.interval(function() {
-        foreground.transition()
-          .duration(750)
-          .attrTween('d', arcTween(Math.random() * tau))
-      }, 1500)
+//      d3.interval(function() {
+//        foreground.transition()
+//          .duration(750)
+//          .attrTween('d', arcTween(Math.random() * tau))
+//      }, 1500)
+
+
+      foreground.transition()
+        .duration(this.transitionDuration)
+        .ease(d3.easeQuadOut)
+        .attr('fill', color)
+        .attrTween('d', arcTween(progress * tau))
+
+      background.transition()
+        .attr('fill', color)
+
 
       // Returns the tween for a transition's "d" attribute, transitioning any 
       // selected arcs from their current angle to the specified new angle
@@ -106,4 +124,8 @@ export default {
 </script>
 
 <style>
+
+  .progress-background {
+    opacity: .2;
+  }
 </style>

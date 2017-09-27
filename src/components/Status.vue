@@ -85,9 +85,7 @@
             <div class="columns">
               <cme-header ></cme-header>
             </div>
-            <div class="columns">
-              <cme-tableau v-for="(primary, index) in primaries" :key="index" :primary="primary" v-if="selectedPrimary === primary.desc"></cme-tableau>
-            </div>
+            <cme-tableau v-for="(primary, index) in primaries" :key="index" :primary="primary" v-if="selectedPrimary === primary.desc"></cme-tableau>
         </div>
       </div>
     </div>
