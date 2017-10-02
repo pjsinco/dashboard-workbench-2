@@ -9,16 +9,24 @@ export default {
 
   props: ['name'],
 
+  data() {
+    return {
+      hour: null,
+    }
+  },
+
+  created() {
+    this.$data.hour = new Date().getHours();
+  },
+
   computed: {
 
     salutation() {
-      const hour = new Date().getHours();
-
       let timeOfDay
 
-      if (hour > 16 || hour < 4) {
+      if (this.hour > 16 || this.hour < 4) {
         timeOfDay = 'evening'
-      } else if (hour > 11) {
+      } else if (this.hour > 11) {
         timeOfDay =  'afternoon'
       } else {
         timeOfDay =  'morning'
