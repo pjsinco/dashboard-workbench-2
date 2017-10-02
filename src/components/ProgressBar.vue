@@ -60,7 +60,7 @@ export default {
     },
 
     togo() {
-      return this.required - this.earned
+      return Math.max(this.required - this.earned, 0.0)
     },
     
   },

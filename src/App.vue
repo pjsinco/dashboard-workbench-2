@@ -46,7 +46,7 @@ export default {
 
   created() {
 
-    const userId = 15
+    const userId = 12
 
     this.$store.dispatch('fetchUser', userId)
       .then((userData) => {
