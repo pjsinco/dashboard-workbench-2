@@ -3,3 +3,8 @@
 
 #####Tue Sep 26 12:16:10 2017 CDT
 * [Write simple unit tests with Vue Test Utils and Jest](https://medium.com/@edward.yerburgh/simple-unit-tests-with-vue-test-utils-and-jest-c384d7abc321)
+
+#####Mon Oct  2 14:40:08 2017 CDT
+* [Write the first Vue.js Component Unit Test in Jest | Alex Jover Morales](https://alexjoverm.github.io/2017/08/21/Write-the-first-Vue-js-Component-Unit-Test-in-Jest/)
+
+* [Testing React Applications with Jest](https://auth0.com/blog/testing-react-applications-with-jest/)

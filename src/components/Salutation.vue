@@ -7,7 +7,11 @@ export default {
 
   name: 'salutation',
 
-  props: ['name'],
+  props: {
+    name: {
+      required: true,
+    },
+  },
 
   data() {
     return {
