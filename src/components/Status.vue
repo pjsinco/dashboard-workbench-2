@@ -122,6 +122,10 @@ export default {
       return this.$store.state.user.lastName
     },
 
+    /**
+     * Track the currently selected tableau
+     *
+     */
     selectedPrimary() {
       return this.$store.state.selectedPrimary
     }

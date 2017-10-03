@@ -3,10 +3,10 @@
   <h6 class="dbviz__title"><span>{{ chartData.name }}</span>requirements</h6>
   <div class="dbviz" :id="id">
     <h4 class="dbviz__count">
-      <span class="head" :class="progressIndicator | hasText" :id="countId"></span>
-      <span class="tail" :class="progressIndicator | hasText">credits earned</span>
-      <span class="tail has-text-grey"><span class="has-text-grey-darker has-text-weight-bold">{{ required }}</span> required</span>
-      <span class="tail has-text-grey">{{ togo }} to go</span>
+      <div class="head" :class="progressIndicator | hasText" :id="countId"></div>
+      <div class="tail--earned" :class="progressIndicator | hasText">credits earned</div>
+      <div class="tail--required has-text-grey"><span class="has-text-grey-darker has-text-weight-bold">{{ required | withDecimal }}</span> required</div>
+      <div class="tail--togo has-text-grey">{{ togo | withDecimal }} to go</div>
     </h4>
     <svg></svg>
   </div>
@@ -16,7 +16,7 @@
 <script>
 import BaseChart from './BaseChart.vue';
 import * as d3 from 'd3';
-import CountUp from 'countup.js'
+import CountUp from 'countUp.js'
 
 export default {
 
@@ -29,6 +29,12 @@ export default {
       return `has-text-${progress}`
     },
 
+    withDecimal(value) {
+      // if value is ".0", drop the decimal format
+      if ((value / .5) % 2 === 0) return value
+
+      return (Math.round(value * 100) / 100).toFixed(1)
+    },
     
   },
 
@@ -51,9 +57,9 @@ export default {
     },
 
     progressIndicator() {
-      if (this.earned / this.required > 0.66) {
+      if (this.earned / this.required >= 0.66) {
         return 'success' 
-      }  else if (this.earned / this.required >= 0.33) {
+      } else if (this.earned / this.required >= 0.33) {
         return 'warning'
       }
       return 'danger'
@@ -139,6 +145,7 @@ export default {
 
       const foreground = g.append('path')
         .datum({endAngle: startAngle * tau})
+        .classed('progress-foreground', true)
         .attr('fill', '#ffffff')
         .attr('d', arc)
 
@@ -217,7 +224,10 @@ export default {
     line-height: 1;
   }
   
-  .dbviz__count > .tail {
+  .dbviz__count > .tail,
+  .dbviz__count > .tail--earned,
+  .dbviz__count > .tail--togo,
+  .dbviz__count > .tail--required {
     position: relative;
     display: block;
     font-weight: 600;
@@ -227,7 +237,9 @@ export default {
     letter-spacing: 1px;
   }
 
-  .dbviz__count > .tail:not(:last-child):after {
+  #progress .dbviz__count > .head:after,
+  #progress .dbviz__count > .tail--earned:after,
+  #progress .dbviz__count > .tail--required:after {
     content: "";
     position: absolute;
     right: 25%;
@@ -301,10 +313,6 @@ export default {
   
   .dbviz__tail .togo {
     margin-bottom: .5rem;
-  }
-  
-  .dbviz__tail .togo > span {
-    display: block;
   }
   
   .dbviz__tail .togo > .head {
