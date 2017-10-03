@@ -41,7 +41,8 @@ module.exports = {
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      'd3': path.resolve(__dirname, 'dist/d3.min.js')
+      'd3': path.resolve(__dirname, 'dist/d3.min.js'),
+      '@': path.resolve(__dirname, 'src')
     }
   },
   devServer: {

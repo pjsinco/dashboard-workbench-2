@@ -31,6 +31,7 @@ import store from './store.js'
 import NavHeader from './components/NavHeader.vue'
 import Banner from './components/Banner.vue'
 import Salutation from './components/Salutation.vue'
+import ToastMessage from '@/components/ToastMessage.vue'
 
 export default {
 

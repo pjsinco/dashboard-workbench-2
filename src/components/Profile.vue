@@ -10,22 +10,29 @@
       </nav>
     </div>
     <div class="column is-9">
+      <toast-message>Maecenas sed diam eget risus varius blandit sit amet non magna. Vestibulum id ligula porta felis euismod semper.</toast-message>
       <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script>
-  export default {
+import ToastMessage from './ToastMessage.vue'
 
-    name: 'profile',
+export default {
 
-    data () {
+  components: {
+    ToastMessage
+  },
 
-      return {
-      }
+  name: 'profile',
+
+  data () {
+
+    return {
     }
   }
+}
 </script>
 
 <style lang="scss">
