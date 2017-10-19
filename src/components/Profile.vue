@@ -10,7 +10,7 @@
       </nav>
     </div>
     <div class="column is-9">
-      <toast-message>Maecenas sed diam eget risus varius blandit sit amet non magna. Vestibulum id ligula porta felis euismod semper.</toast-message>
+      <toast-message></toast-message>
       <router-view></router-view>
     </div>
   </div>

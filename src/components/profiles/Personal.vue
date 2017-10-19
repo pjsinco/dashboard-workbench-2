@@ -80,94 +80,96 @@
 </template>
 
 <script>
-  import _ from 'lodash';
-  import Form from './../../utils/Form';
-  import Errors from './../../utils/Errors';
-
-  export default {
-
-    name: 'profile-personal',
-
-    methods: {
-
-      handleInputUpdate(evt) {
-        this.form.errors.clear()
-        this.$store.commit('updateUser', { [evt.target.name]: evt.target.value })
-      },
-
-      onSubmit() {
-        this.form.post('http://dashboardproto.app/api/v1/users/' + 
-                       this.$store.state.user.id)
-          .then(response => {
-            this.$store.dispatch('updateUser', response)
-          })
-          .catch(error => {
-//console.log(this.errors.has('last_name'));
-          });
-      },
+import _ from 'lodash';
+import Form from './../../utils/Form';
+import Errors from './../../utils/Errors';
 
 
+export default {
+
+  name: 'profile-personal',
+
+  methods: {
+
+    handleInputUpdate(evt) {
+      this.form.errors.clear()
+      this.$store.commit('updateUser', { [evt.target.name]: evt.target.value })
     },
 
-    computed: {
-      isLoading() {
-        return this.$store.state.loading;
-      },
-
-//      form() {
-//        return new Form({
-//          first_name:  this.$store.state.user.first_name,
-//          middle_name: this.$store.state.user.middle_name,
-//          last_name:   this.$store.state.user.last_name,
-//          suffix:     this.$store.state.user.suffix,
-//          email:      this.$store.state.user.email,
-//          website:    this.$store.state.user.website,
-//        })
-//      },
-    },
-
-    created() {
-      /**
-       * @see https://vuex.vuejs.org/en/api.html#vuexstore-instance-methods
-       * 
-       * We'll watch for store changes and then update
-       * our local form data.
-       */
-      this.$store.subscribe((mutation, state) => {
-
-        if (mutation.type === 'updateUser') {
-          this.$data.form = new Form(Object.assign({}, {
-            first_name:  mutation.payload.first_name,
-            middle_name: mutation.payload.middle_name,
-            last_name:   mutation.payload.last_name,
-            suffix:      mutation.payload.suffix,
-            email:       mutation.payload.email,
-            website:     mutation.payload.website,
-          }))
-        }
-      });
+    onSubmit() {
+      this.form.post('http://dashboardproto.app/api/v1/users/' + 
+                     this.$store.state.user.id)
+        .then(response => {
+          this.$store.dispatch('updateUser', response)
+          this.$toast.popUp('Updated the info')
+        })
+        .catch(error => {
+console.log(this.errors.has('last_name'));
+        });
     },
 
 
-    data () {
-      return {
+  },
 
-        /**
-         * Clone user data for our local form.
-         * When we have new, validated data that the store
-         * should know about, we'll call mutations.
-         */
-        form: new Form(Object.assign({}, {
+  computed: {
+    isLoading() {
+      return this.$store.state.loading;
+    },
+
+      form() {
+        return new Form({
           first_name:  this.$store.state.user.first_name,
           middle_name: this.$store.state.user.middle_name,
           last_name:   this.$store.state.user.last_name,
-          suffix:      this.$store.state.user.suffix,
-          email:       this.$store.state.user.email,
-          website:     this.$store.state.user.website,
+          suffix:     this.$store.state.user.suffix,
+          email:      this.$store.state.user.email,
+          website:    this.$store.state.user.website,
+        })
+      },
+  },
+
+  created() {
+    /**
+     * @see https://vuex.vuejs.org/en/api.html#vuexstore-instance-methods
+     * 
+     * We'll watch for store changes and then update
+     * our local form data.
+     */
+    this.$store.subscribe((mutation, state) => {
+
+      if (mutation.type === 'updateUser') {
+        this.$data.form = new Form(Object.assign({}, {
+          first_name:  mutation.payload.first_name,
+          middle_name: mutation.payload.middle_name,
+          last_name:   mutation.payload.last_name,
+          suffix:      mutation.payload.suffix,
+          email:       mutation.payload.email,
+          website:     mutation.payload.website,
         }))
-      };
-    }
+      }
+    });
+  },
+
+
+  data () {
+    return {
+
+      /**
+       * Clone user data for our local form.
+       * When we have new, validated data that the store
+       * should know about, we'll call mutations.
+       */
+      form: new Form(Object.assign({}, {
+        first_name:  this.$store.state.user.first_name,
+        middle_name: this.$store.state.user.middle_name,
+        last_name:   this.$store.state.user.last_name,
+        suffix:      this.$store.state.user.suffix,
+        email:       this.$store.state.user.email,
+        website:     this.$store.state.user.website,
+      }))
+    };
   }
+}
 </script>
 
 <style lang="scss">
