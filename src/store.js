@@ -11,6 +11,7 @@ const apiUrl = 'http://dashboardproto.app/api/v1'
 const state = {
 
   user: {},
+  addresses: {},
   loading: true,
   cmeData: {},
   selectedPrimary: '',
@@ -37,6 +38,10 @@ const mutations = {
   setCmeData(state, data) {
     state.cmeData = data
   },
+
+  setAddresses(state, addresses) {
+    state.addresses = addresses
+  }
 }
 
 const actions = {
@@ -63,6 +68,23 @@ const actions = {
 
     return new Promise((resolve, reject) => {
       axios.get(`${apiUrl}/users/${id}/cme`)
+        .then(data => {
+          store.commit('setLoading', false)
+          resolve(data)
+        }) 
+        .catch(error => {
+          store.commit('setLoading', false)
+          console.dir(error);
+          reject(error)
+        })
+    })
+
+  },
+
+  fetchAddresses(store, id) {
+
+    return new Promise((resolve, reject) => {
+      axios.get(`${apiUrl}/addresses/${id}`)
         .then(data => {
           store.commit('setLoading', false)
           resolve(data)

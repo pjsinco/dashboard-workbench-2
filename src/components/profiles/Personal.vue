@@ -116,16 +116,16 @@ console.log(this.errors.has('last_name'));
       return this.$store.state.loading;
     },
 
-      form() {
-        return new Form({
-          first_name:  this.$store.state.user.first_name,
-          middle_name: this.$store.state.user.middle_name,
-          last_name:   this.$store.state.user.last_name,
-          suffix:     this.$store.state.user.suffix,
-          email:      this.$store.state.user.email,
-          website:    this.$store.state.user.website,
-        })
-      },
+    form() {
+      return new Form({
+        first_name:  this.$store.state.user.first_name,
+        middle_name: this.$store.state.user.middle_name,
+        last_name:   this.$store.state.user.last_name,
+        suffix:     this.$store.state.user.suffix,
+        email:      this.$store.state.user.email,
+        website:    this.$store.state.user.website,
+      })
+    },
   },
 
   created() {
@@ -159,14 +159,14 @@ console.log(this.errors.has('last_name'));
        * When we have new, validated data that the store
        * should know about, we'll call mutations.
        */
-      form: new Form(Object.assign({}, {
-        first_name:  this.$store.state.user.first_name,
-        middle_name: this.$store.state.user.middle_name,
-        last_name:   this.$store.state.user.last_name,
-        suffix:      this.$store.state.user.suffix,
-        email:       this.$store.state.user.email,
-        website:     this.$store.state.user.website,
-      }))
+//      form: new Form(Object.assign({}, {
+//        first_name:  this.$store.state.user.first_name,
+//        middle_name: this.$store.state.user.middle_name,
+//        last_name:   this.$store.state.user.last_name,
+//        suffix:      this.$store.state.user.suffix,
+//        email:       this.$store.state.user.email,
+//        website:     this.$store.state.user.website,
+//      }))
     };
   }
 }

@@ -107,12 +107,12 @@
 
       form() {
         return new Form({
-          address1:  this.$store.state.user.home_addr_1,
-          address2:  this.$store.state.user.home_addr_2,
-          city:      this.$store.state.user.home_city,
-          state:     this.$store.state.user.home_state,
-          zip:       this.$store.state.user.home_zip,
-          homePhone: this.$store.state.user.home_phone,
+          address1:  this.$store.state.addresses.home_addr_1,
+          address2:  this.$store.state.addresses.home_addr_2,
+          city:      this.$store.state.addresses.home_city,
+          state:     this.$store.state.addresses.home_state,
+          zip:       this.$store.state.addresses.home_zip,
+          homePhone: this.$store.state.addresses.home_phone,
         });
       },
 

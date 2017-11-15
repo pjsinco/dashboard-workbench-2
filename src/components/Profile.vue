@@ -25,6 +25,14 @@ export default {
     ToastMessage
   },
 
+  mounted() {
+    this.$store.dispatch('fetchAddresses', this.$store.state.user.aoa_id)
+      .then(response => {
+        this.$store.commit('setAddresses', response.data)
+      })
+
+  },
+
   name: 'profile',
 
   data () {

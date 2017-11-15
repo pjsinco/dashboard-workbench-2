@@ -113,12 +113,12 @@
       form() {
         return new Form({
           email: 'TODO',
-          address1:  this.$store.state.user.bus_addr_1,
-          address2:  this.$store.state.user.bus_addr_2,
-          city:      this.$store.state.user.bus_city,
-          state:     this.$store.state.user.bus_state,
-          zip:       this.$store.state.user.bus_zip,
-          homePhone: this.$store.state.user.bus_phone,
+          address1:  this.$store.state.addresses.bus_addr_1,
+          address2:  this.$store.state.addresses.bus_addr_2,
+          city:      this.$store.state.addresses.bus_city,
+          state:     this.$store.state.addresses.bus_state,
+          zip:       this.$store.state.addresses.bus_zip,
+          homePhone: this.$store.state.addresses.bus_phone,
         });
       },
 
