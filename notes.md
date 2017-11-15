@@ -72,3 +72,46 @@ jQuery.ajax(url, {
     > Plugin source at wp-content/plugins/aoassoapicheck
      
     > The output of the validation is in the console log, for reference.
+
+##### Wed Nov  1 10:08:51 2017 CDT
+* Demo URL:
+    ```
+    https://tracme-demo.osteopathic.org/api/report/GetMember?user=UserGetMemberCredits&pwd=1bQJy3wO5mG4P1mwyNqpRw%3d%3d&memberCode=059678
+    ```
+    Working now for your review.  This link should only be used for review not for production use.
+ 
+* Production URL: 
+    ```
+    https://tracme.osteopathic.org/api/report/GetMember?user=UserGetMemberCredits&pwd=1bQJy3wO5mG4P1mwyNqpRw%3d%3d&memberCode=059678
+    ``` 
+    Will NOT work until code is moved live
+ 
+    ```
+    Path: https://tracme.osteopathic.org/api/report/GetMember?user=UserGetMemberCredits
+    Password: &pwd=1bQJy3wO5mG4P1mwyNqpRw%3d%3d
+    Member Code:  &memberCode=??????
+    ``` 
+
+* Board Cert API
+    ```
+    https://cf.osteopathic.org/cbdb/api/v1/certification.cfc?method=getCertification&aoaid=123456
+    ```
+
+
+##### Thu Nov  2 09:42:10 2017 CDT
+* [AJAX in Plugins « WordPress Codex](https://codex.wordpress.org/AJAX_in_Plugins)
+
+* [12. JavaScript and Ajax in WordPress - Professional WordPress® Plugin Development](https://www.safaribooksonline.com/library/view/professional-wordpress-plugin/9780470916223/ch12.html)
+
+
+##### Fri Nov  3 09:21:36 2017 CDT
+* [Everything You Ever Wanted to Know About Secure HTML Forms](https://twilioinc.wpengine.com/2017/09/everything-you-ever-wanted-to-know-about-secure-html-forms.html)
+
+* [Submit Button Concept](https://codepen.io/TazTheManiac/pen/mqVeWW)
+
+##### Mon Nov 13 16:26:05 2017 CST
+* [Creating a Loading Placeholder with Sass - Lee Robinson](https://www.leejamesrobinson.com/blog/loading-placeholder-with-sass/)
+    * [Creating a Loading Placeholder Like Facebook with Sass : webdev](https://www.reddit.com/r/webdev/comments/7ci3q7/creating_a_loading_placeholder_like_facebook_with/)
+
+##### Wed Nov 15 09:02:38 2017 CST 
+* [Advanced CSS-Only Form Styling - Jonathan Harrell | CSS Blogger & Teacher, UI/UX Designer, Front-End Developer](https://jonathan-harrell.com/advanced-css-form-styling/)
