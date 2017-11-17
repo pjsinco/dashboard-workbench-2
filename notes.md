@@ -1,3 +1,8 @@
+# INSPR
+* [Learn to Code Online with Code School | Code School](https://www.codeschool.com/)
+    * The cards are super nice
+
+# NOTES
 #####Fri Sep 22 11:47:19 2017 CDT
 * [How do you handle forms in the context of Vuex? : vuejs](https://www.reddit.com/r/vuejs/comments/5lbw9b/how_do_you_handle_forms_in_the_context_of_vuex/)
 
@@ -30,7 +35,7 @@ var url = 'https://accounts.osteopathic.org/api/validatetoken/'
 jQuery.ajax(url, {
   method: 'post',
   headers: {
-    'AOA_SSO_AUTH': '49645660-06B5-FB82-A06237B0D1F39570'
+    'AOA_SSO_AUTH': '<KEY>'
   },
   data: {
     token: 'QUQ3OUUyRUUtRkFGMi01MzU4LTI3QjUwRDg5NERGNTE0QUJBRDc5RTJFRi05NTkyLTNGNUQtNTRBQUIwNzNGQjZEQUQ0NEFENzlFMkYwLTk3QkQtNjI5OC1DRTQ5OUJDQUYyNjQ0N0Iw',
@@ -76,19 +81,19 @@ jQuery.ajax(url, {
 ##### Wed Nov  1 10:08:51 2017 CDT
 * Demo URL:
     ```
-    https://tracme-demo.osteopathic.org/api/report/GetMember?user=UserGetMemberCredits&pwd=1bQJy3wO5mG4P1mwyNqpRw%3d%3d&memberCode=059678
+    https://tracme-demo.osteopathic.org/api/report/GetMember?user=UserGetMemberCredits&pwd=12345&memberCode=059678
     ```
     Working now for your review.  This link should only be used for review not for production use.
  
 * Production URL: 
     ```
-    https://tracme.osteopathic.org/api/report/GetMember?user=UserGetMemberCredits&pwd=1bQJy3wO5mG4P1mwyNqpRw%3d%3d&memberCode=059678
+    https://tracme.osteopathic.org/api/report/GetMember?user=UserGetMemberCredits&pwd=12345&memberCode=059678
     ``` 
     Will NOT work until code is moved live
  
     ```
     Path: https://tracme.osteopathic.org/api/report/GetMember?user=UserGetMemberCredits
-    Password: &pwd=1bQJy3wO5mG4P1mwyNqpRw%3d%3d
+    Password: &pwd=<PASSWORD>
     Member Code:  &memberCode=??????
     ``` 
 
@@ -115,3 +120,5 @@ jQuery.ajax(url, {
 
 ##### Wed Nov 15 09:02:38 2017 CST 
 * [Advanced CSS-Only Form Styling - Jonathan Harrell | CSS Blogger & Teacher, UI/UX Designer, Front-End Developer](https://jonathan-harrell.com/advanced-css-form-styling/)
+
+
