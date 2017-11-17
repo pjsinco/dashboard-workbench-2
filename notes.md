@@ -3,18 +3,18 @@
     * The cards are super nice
 
 # NOTES
-#####Fri Sep 22 11:47:19 2017 CDT
+##### Fri Sep 22 11:47:19 2017 CDT
 * [How do you handle forms in the context of Vuex? : vuejs](https://www.reddit.com/r/vuejs/comments/5lbw9b/how_do_you_handle_forms_in_the_context_of_vuex/)
 
-#####Tue Sep 26 12:16:10 2017 CDT
+##### Tue Sep 26 12:16:10 2017 CDT
 * [Write simple unit tests with Vue Test Utils and Jest](https://medium.com/@edward.yerburgh/simple-unit-tests-with-vue-test-utils-and-jest-c384d7abc321)
 
-#####Mon Oct  2 14:40:08 2017 CDT
+##### Mon Oct  2 14:40:08 2017 CDT
 * [Write the first Vue.js Component Unit Test in Jest | Alex Jover Morales](https://alexjoverm.github.io/2017/08/21/Write-the-first-Vue-js-Component-Unit-Test-in-Jest/)
 
 * [Testing React Applications with Jest](https://auth0.com/blog/testing-react-applications-with-jest/)
 
-#####Tue Oct  3 12:11:07 2017 CDT
+##### Tue Oct  3 12:11:07 2017 CDT
 * [How To Create a Snackbar / Toast](https://www.w3schools.com/howto/howto_js_snackbar.asp)
 
 * [css3 - CSS transition when class removed - Stack Overflow](https://stackoverflow.com/questions/9509002/css-transition-when-class-removed)
@@ -24,11 +24,11 @@
     > If the CSS transition settings apply to the object (without the "saved" class), then they will apply to both transitions.
 
 
-#####Thu Oct  5 09:15:49 2017 CDT
+##### Thu Oct  5 09:15:49 2017 CDT
 * [Good Vue testing tips](https://eddyerburgh.me/)
 
-#####Tue Oct 17 15:18:01 2017 CDT
-###Example Token Validation Call
+##### Tue Oct 17 15:18:01 2017 CDT
+### Example Token Validation Call
 ```javascript
 var url = 'https://accounts.osteopathic.org/api/validatetoken/'
 
@@ -46,7 +46,7 @@ jQuery.ajax(url, {
 })
 ```
 
-#####Wed Oct 18 12:10:58 2017 CDT
+##### Wed Oct 18 12:10:58 2017 CDT
 * [Securing API Keys in a JavaScript Single Page App - Bill Patrianakos](http://billpatrianakos.me/blog/2016/02/15/securing-api-keys-in-a-javascript-single-page-app/)
 
     >As for any functionality in your application that requires you to communicate with a third party API you don’t control, the answer is to make a simple CSRF secured AJAX call to your own back-end and then let your server-side application make the API call on behalf of your front-end then return the response back to your client-side app.
