@@ -121,4 +121,7 @@ jQuery.ajax(url, {
 ##### Wed Nov 15 09:02:38 2017 CST 
 * [Advanced CSS-Only Form Styling - Jonathan Harrell | CSS Blogger & Teacher, UI/UX Designer, Front-End Developer](https://jonathan-harrell.com/advanced-css-form-styling/)
 
+##### Wed Nov 22 09:41:26 2017 CST 
+* [A Comprehensive Guide To Web Design — Smashing Magazine](https://www.smashingmagazine.com/2017/11/comprehensive-guide-web-design/)
 
+* [Creating Secure Password Resets With JSON Web Tokens — Smashing Magazine](https://www.smashingmagazine.com/2017/11/safe-password-resets-with-json-web-tokens/)
