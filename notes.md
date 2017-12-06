@@ -125,3 +125,6 @@ jQuery.ajax(url, {
 * [A Comprehensive Guide To Web Design — Smashing Magazine](https://www.smashingmagazine.com/2017/11/comprehensive-guide-web-design/)
 
 * [Creating Secure Password Resets With JSON Web Tokens — Smashing Magazine](https://www.smashingmagazine.com/2017/11/safe-password-resets-with-json-web-tokens/)
+
+##### Mon Nov 27 08:57:13 2017 CST
+* [Happier HTML5 Form Validation - daverupert.com](https://daverupert.com/2017/11/happier-html5-forms/)
