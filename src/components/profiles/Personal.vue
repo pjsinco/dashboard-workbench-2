@@ -98,13 +98,13 @@ export default {
 
     onSubmit() {
       this.form.post('http://dashboardproto.app/api/v1/users/' + 
-                     this.$store.state.user.id)
+                     this.$store.state.user.aoa_id)
         .then(response => {
           this.$store.dispatch('updateUser', response)
           this.$toast.popUp('Updated the info')
         })
         .catch(error => {
-console.log(this.errors.has('last_name'));
+console.log(this.form.errors.has('last_name'));
         });
     },
 
